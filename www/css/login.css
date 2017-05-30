@@ -1,0 +1,36 @@
+#login {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.scroll-content {
+    display: table !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+form {
+      display: table-cell;
+      vertical-align: middle;
+}
+.header {
+        padding-bottom: 20px;
+}
+.login_img {
+     display: block;
+     width: 40%;
+     margin: 0 auto;
+}
+.loginInput{height:45px !important;}
+.button.button-light.active, .button.button-light.activated {
+        color: #fff;
+        opacity: inherit;
+}
+@font-face{
+	font-family:'Socialize';
+	src:url('../lib/font/Socialize.ttf');
+}
+.userStyle{
+	font-family:'Socialize';
+	font-size:20px;
+}

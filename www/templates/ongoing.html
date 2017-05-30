@@ -1,0 +1,38 @@
+<ion-view view-title="On-Going Trip"> 
+<ion-content ng-init="select()">
+<div ng-hide="tripNotOngoing" id="onGoingMap" style="height: 75%"></div>
+<div ng-hide="tripNotOngoing" id="directions-panel"></div>
+
+<div ng-hide="tripNotOngoing" class="container">
+	<ul class="progressbar">
+		<li class="active">START TRIP</li>
+		<li class={{drop}}>DROP PASSENGER</li>
+		<li class={{end}}>END TRIP</li>
+	</ul>
+</div>
+
+
+<!-- <button ion-button round class="onGoingBtn" ng-show="dropCustomer" ng-click="dropedCustomer()">
+     <ion-icon name="ion-waterdrop"></ion-icon>     
+     Drop Customer
+     </button>
+     <button ion-button round class="endTripBtn" ng-show="endTrip" ng-click="doEndTrip()">
+     <ion-icon name="ion-waterdrop"></ion-icon>     
+     End Trip
+     </button> -->
+<div class="row" ng-show="tripNotOngoing">
+	<div class="col verhorcenter" align="center">
+		<div class="centerData">
+			<ul class="nodata_list">
+				<li><img alt="" src="../www/img/no-data.png" class="nodata_img"></li>
+				<li><label style="color: #000">Currently No On Going
+						Trip!</label></li>
+				<li><span>No Data Available</span></li>
+			</ul>
+		</div>
+	</div>
+</div>
+</ion-content> 
+<ion-footer-bar ng-hide="tripNotOngoing">
+<button class="bar bar-footer bar-positive footer-button" ng-click="dummyFunction()"><center style="width: 100%; margin-right: 10; margin-left: 10px">{{button}}</center></button>
+</ion-footer-bar> </ion-view>

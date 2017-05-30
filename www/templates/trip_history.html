@@ -1,0 +1,356 @@
+<ion-view view-title="Trip History">
+ <ion-content>
+  <div class="list card">
+  	<div class="item item-divider">
+  		<div class="row">
+  			<div class="col-33"><button class="button button-positive" ng-click="today()">Today</button></div>
+  			<div class="col-67 dateSection verhorcenter">
+  					<label class="input-label labelStyle">From</label>
+                    <input class="item item-input item-floating-label date_time_cal" id="start_alarm_Dt"  name="start_date" type="date"  ng-model="hist.startDate"  ng-change="showTripHistory(hist)" required/>
+             </div>           
+  		</div>
+  	</div>
+  </div>
+  <ion-scroll zooming="true" direction="y" ng-style="availableScroller">
+  	<div  ng-hide="historyNotAvailable" ng-repeat=" trips in th_data.data">
+  	<!-- Running Cards -->
+		<div ng-if="trips.status=='R'">
+			<div class="list card">
+				<div class="item item-text-wrap">
+					<h3 class="tripName">{{trips.trip_name}}</h3>
+					<div class="row padd0">
+						<div class="col">
+							<span class="tripCode">tripcode#{{trips.trip_id}}</span>
+							<span class="tripOnGoingDot">.</span>
+							<span class="tripOnGoing">Ongoing</span>
+						</div>
+					</div>
+					<div class="row padd0">
+						<div class="col col-80">
+							<span class="tripSlot">Scheduled Pickup:{{getTimeService(trips.td_start_point.ts)}}
+								&nbsp;&nbsp;Scheduled End:{{getTimeService(trips.td_end_point.ts)}} </span>
+						</div>
+					</div>
+				</div>
+
+				<div class="item item-text-wrap">
+					<div class="row">
+						<div class="col-20">
+							<ul class="completedTimelist">
+								<li>START</li>
+								<li>{{getTimeService(trips.drv_start_point.ts)}}</li>
+							</ul>
+						</div>
+						<div class="col-25 custCol">
+							<span class="startDot">.</span>
+						</div>
+						<div class="col-75 vhCenter">
+							<label><reverse-geocode lat="{{trips.drv_start_point.lat}}"lng="{{trips.drv_start_point.long}}"/></label>
+							<a ng-click="open(trips.drv_start_point)">link to see in map</a>
+						</div>
+					</div>
+				</div>
+				<ion-item class="item-accordion" ng-show="isEventShown(trips)" ng-repeat="event in teh_data.events">
+				<!-- Events -->
+				<div class="list card">
+					<div class="item item-text-wrap">
+						<div class="row padd0">
+							<div class="col-20 applyColor">
+								<ul class="eventList">
+									<li>{{getTimeService(event.ts)}}</li>
+									<li>{{getDateService(event.ts)}}</li>
+								</ul>
+							</div>
+							<!-- 0 panic ,3 battery, 4 overspeed,5 geo fence,7 cat -->
+							<div class="col-40 vhCenter">
+								<ul class="evenDetail">
+									<li><div class="verhorcenter"><img ng-src="{{getEventImgSrc(event.alarm_type)}}" class="markerImg"><label>{{getEventName(event.alarm_type)}}</label></div></li>
+									<li><span>Vehicle no:{{event.vehicle_num}}</span></li>
+								</ul>
+							</div>
+							<div class="col-20 applyColor">
+								<ul class="eventList">
+									<li>{{event.Velocity}}</li>
+									<li>KMPH</li>
+								</ul>
+							</div>
+							<div class="col-20 markerDiv">
+								<img alt="phone" src="../www/img/location.png"
+											class="markerImg" ng-click="showEventNotifyPop(event)"/>
+							</div>
+						</div>
+					</div>		
+				</div>
+				<!-- Events -->         
+			</ion-item>	
+				<div class="row">
+					<div class="col col-33 col-offset-67 col-center">
+						<label class="eventStyle" ng-click="tripEventHistoryApiCall(trips.trip_id);toggleEventInfo(trips)">{{isEventShown(trips)&&eventsAvail?"HIDE":"SHOW"}} EVENTS &nbsp;<i class="icon" ng-class="isEventShown(trips)&&eventsAvail?'ion-chevron-up':'ion-chevron-down'"></i></label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Running Cards -->
+  		<!-- Dropped Cards -->
+		<div ng-if="trips.status=='D'">
+			<div class="list card">
+				<div
+					class="item item-text-wrap">
+					<h3 class="tripName">{{trips.trip_name}}</h3>
+					<div class="row padd0">
+						<div class="col">
+							<span class="tripCode">tripcode#{{trips.trip_id}}</span><span
+								class="tripDropped">Dropped</span>
+						</div>
+					</div>
+					<div class="row padd0">
+						<div class="col col-80">
+							<span class="tripSlot">Scheduled Pickup:{{getTimeService(trips.td_start_point.ts)}}
+								&nbsp;&nbsp;Scheduled End:{{getTimeService(trips.td_end_point.ts)}} </span>
+						</div>
+					</div>
+				</div>
+
+				<div class="item item-text-wrap">
+					<div class="row">
+						<div class="col-20">
+							<ul class="completedTimelist">
+								<li>START</li>
+								<li>{{getTimeService(trips.drv_start_point.ts)}}</li>
+							</ul>
+						</div>
+						<div class="col-20 custCol">
+							<span class="startDot">.</span>
+						</div>
+						<div class="col-60 vhCenter">
+							<label><reverse-geocode lat="{{trips.drv_start_point.lat}}"lng="{{trips.drv_start_point.long}}"/></label>
+							<a ng-click="open(trips.drv_start_point)">link to see in map</a>
+						</div>
+					</div>
+				</div>
+				<div class="item item-text-wrap">
+					<div class="row">
+						<div class="col-20">
+							<ul class="completedTimelist">
+								<li>DROP</li>
+								<li>{{getTimeService(trips.drv_drop_point.ts)}}</li>
+							</ul>
+						</div>
+						<div class="col-20 custCol">
+							<span class="dropDot">.</span>
+						</div>
+						<div class="col-60 vhCenter">
+							<label><reverse-geocode lat="{{trips.drv_drop_point.lat}}"lng="{{trips.drv_drop_point.long}}"/></label>
+							<a ng-click="open(trips.drv_drop_point)">link to see in map</a>
+						</div>
+					</div>
+				</div>
+				<ion-item class="item-accordion" ng-show="isEventShown(trips)" ng-repeat="event in teh_data.events">
+				<!-- Events -->
+				<div class="list card">
+					<div class="item item-text-wrap">
+						<div class="row padd0">
+							<div class="col-20 applyColor">
+								<ul class="eventList">
+									<li>{{getTimeService(event.ts)}}</li>
+									<li>{{getDateService(event.ts)}}</li>
+								</ul>
+							</div>
+							<!-- 0 panic ,3 battery, 4 overspeed,5 geo fence,7 cat -->
+							<div class="col-40 vhCenter">
+								<ul class="evenDetail">
+									<li><div class="verhorcenter"><img ng-src="{{getEventImgSrc(event.alarm_type)}}" class="markerImg"><label>{{getEventName(event.alarm_type)}}</label></div></li>
+									<li><span>Vehicle no:{{event.vehicle_num}}</span></li>
+								</ul>
+							</div>
+							<div class="col-20 applyColor">
+								<ul class="eventList">
+									<li>{{event.Velocity}}</li>
+									<li>KMPH</li>
+								</ul>
+							</div>
+							<div class="col-20 markerDiv">
+								<img alt="phone" src="../www/img/location.png"
+											class="markerImg" ng-click="showEventNotifyPop(event)"/>
+							</div>
+						</div>
+					</div>		
+				</div>
+				<!-- Events -->         
+			</ion-item>	
+				<div class="row">
+					<div class="col col-33 col-offset-67 col-center">
+						<label class="eventStyle" ng-click="tripEventHistoryApiCall(trips.trip_id);toggleEventInfo(trips)">{{isEventShown(trips)&&eventsAvail?"HIDE":"SHOW"}} EVENTS &nbsp;<i class="icon" ng-class="isEventShown(trips)&&eventsAvail?'ion-chevron-up':'ion-chevron-down'"></i></label>
+					</div>
+				</div>				
+			</div>
+		</div>
+		<!-- Dropped Cards -->
+  		<!-- Completed Cards -->
+		<div ng-if="trips.status=='F'">
+			<div class="list card">
+				<div
+					class="item item-text-wrap">
+					<h3 class="tripName">{{trips.trip_name}}</h3>
+					<div class="row padd0">
+						<div class="col">
+							<span class="tripCode">tripcode#{{trips.trip_id}}</span><span
+								class="tripComplete">Completed</span>
+						</div>
+					</div>
+					<div class="row padd0">
+						<div class="col col-80">
+							<span class="tripSlot">Scheduled Pickup:{{getTimeService(trips.td_start_point.ts)}}
+								&nbsp;&nbsp;Scheduled Drop:{{getTimeService(trips.td_end_point.ts)}} </span>
+						</div>
+					</div>
+				</div>
+
+				<div class="item item-text-wrap">
+					<div class="row">
+						<div class="col-20">
+							<ul class="completedTimelist">
+								<li>START</li>
+								<li>{{getTimeService(trips.drv_start_point.ts)}}</li>
+							</ul>
+						</div>
+						<div class="col-20 custCol">
+							<span class="startDot">.</span>
+						</div>
+						<div class="col-55 vhCenter">
+							<label><reverse-geocode lat="{{trips.drv_start_point.lat}}"lng="{{trips.drv_start_point.long}}"/></label>
+							<a ng-click="open(trips.drv_start_point)">link to see in map</a>
+						</div>
+					</div>
+				</div>
+				<div class="item item-text-wrap">
+					<div class="row">
+						<div class="col-20">
+							<ul class="completedTimelist">
+								<li>DROP</li>
+								<li>{{getTimeService(trips.drv_drop_point.ts)}}</li>
+							</ul>
+						</div>
+						<div class="col-20 custCol">
+							<span class="dropDot">.</span>
+						</div>
+						<div class="col-55 vhCenter">
+							<label><reverse-geocode lat="{{trips.drv_drop_point.lat}}"lng="{{trips.drv_drop_point.long}}"/></label>
+							<a ng-click="open(trips.drv_drop_point)">link to see in map</a>
+						</div>
+					</div>
+				</div>
+				<div class="item item-text-wrap">
+					<div class="row">
+						<div class="col-20">
+							<ul class="completedTimelist">
+								<li>END</li>
+								<li>{{getTimeService(trips.drv_end_point.ts)}}</li>
+							</ul>
+						</div>
+						<div class="col-20 custCol">
+							<span class="endDot">.</span>
+						</div>
+						<div class="col-55 vhCenter">
+							<label><reverse-geocode lat="{{trips.drv_end_point.lat}}"lng="{{trips.drv_end_point.long}}"/>
+							</label>
+							<a ng-click="open(trips.drv_end_point)">link to see in map</a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col col-33 col-offset-67 col-center">
+						<label class="eventStyle" ng-click="tripEventHistoryApiCall(trips.trip_id);toggleEventInfo(trips)">{{isEventShown(trips)&&eventsAvail?"HIDE":"SHOW"}} EVENTS &nbsp;<i class="icon" ng-class="isEventShown(trips)&&eventsAvail?'ion-chevron-up':'ion-chevron-down'"></i></label>
+					</div>
+				</div>
+			<ion-item class="item-accordion" ng-show="isEventShown(trips)" ng-repeat="event in teh_data.events">
+				<!-- Events -->
+				<div class="updatedCard card list borderBottom">
+					<div class="item item-text-wrap">
+						<div class="row padd0">
+							<div class="col-20 applyColor">
+								<ul class="eventList">
+									<li>{{getTimeService(event.ts)}}</li>
+									<li>{{getDateService(event.ts)}}</li>
+								</ul>
+							</div>
+							<!-- 0 panic ,3 battery, 4 overspeed,5 geo fence,7 cat -->
+							<div class="col-40 vhCenter">
+								<ul class="evenDetail">
+									<li><div class="verhorcenter"><img ng-src="{{getEventImgSrc(event.alarm_type)}}" class="markerImg"><label>getEventName(event.alarm_type)</label></div></li>
+									<li><span>Vehicle no:{{event.vehicle_num}}</span></li>
+								</ul>
+							</div>
+							<div class="col-20 applyColor">
+								<ul class="eventList">
+									<li>{{event.Velocity}}</li>
+									<li>KMPH</li>
+								</ul>
+							</div>
+							<div class="col-20 markerDiv">
+								<img alt="phone" src="../www/img/location.png"
+											class="markerImg" ng-click="showEventNotifyPop(event)"/>
+							</div>
+						</div>
+					</div>		
+				</div>
+				<!-- Events -->         
+			</ion-item>	
+			</div>
+		</div>
+		<!-- Completed Cards -->
+		<!-- Cancelled Cards -->
+		<div ng-if="trips.status=='C'">
+			<div class="updatedCard card list marginBottom">
+				<div class="updatedDivider item item-divider cardPadding noBorder">
+					<h3 class="tripName">{{trips.trip_name}}</h3>
+					<span class="tripCode">tripcode#{{trips.trip_id}}</span><span
+						class="tripCancel">Cancelled</span>
+				</div>
+
+				<div class="item item-text-wrap itemStyle statusCancel">
+					<div class="row padd0">
+						<div class="col-20 applyColor">
+							<ul class="timelist">
+								<li>PICKUP</li>
+								<li>{{getTimeService(trips.td_start_point.ts)}}</li>
+								<li>APPROX</li>
+							</ul>
+						</div>
+						<div class="col-80 vhCenter">
+							<label>{{trips.td_start_point.name}}</label>
+						</div>
+					</div>
+				</div>
+				<div class="item item-text-wrap itemStyle statusCancel">
+					<div class="row padd0">
+						<div class="col-20 applyColor">
+							<ul class="timelist">
+								<li class="colorDrop">DROP</li>
+								<li>{{getTimeService(trips.td_end_point.ts)}}</li>
+								<li>APPROX</li>
+							</ul>
+						</div>
+						<div class="col-80 vhCenter">
+							<label>{{trips.td_destination.name}}</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Cancelled Cards -->
+	</div>
+	<div class="row" ng-show="historyNotAvailable">
+		<div class="col verhorcenter" align="center">
+			<div class="centerData">
+				<ul class="nodata_list">
+					<li><img alt="" src="../www/img/no-data.png" class="nodata_img"></li>
+					<li><label style="color: #000">Nothing here!</label></li>
+					<li><span>No Data Available</span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+  </ion-scroll>
+ </ion-content>
+</ion-view>

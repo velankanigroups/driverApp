@@ -1,0 +1,33 @@
+<ion-view view-title="Trip Notifications"> <ion-content>
+<ion-list>
+<div class="list allocated_style" ng-if="tripNotificationsAvailable" ng-repeat="trip in notifyTrips">
+	<ion-item class="item-stable custom_item item_notification" ng-click="showTripNotifyPopup(trip)">
+	<li class="item item-toggle">
+		<div class="row">
+			<div class="col">
+				<a class="item item-avatar" href="#"> <span>{{trip.status}}</span>
+				</a>
+				<h3 class="text_notify">Trip Name:<br>{{trip.trip_name}}</h3>
+				<p>Trip Starting Date & Time:{{getDateTime(trip.td_start_point_ts)}}</p>				
+			</div>
+		</div>
+	</li>
+	</ion-item>
+</div>
+<div class="row" ng-show="noTripNotifications">
+		<div class="col verhorcenter" align="center">
+			<div class="centerData">
+				<ul class="nodata_list">
+					<li><img alt="" src="../www/img/no-data.png" class="nodata_img"></li>
+					<li><label style="color: #000">Nothing here!</label></li>
+					<li><span>No Trip Notifications Available</span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+<a ng-if="tripNotificationsAvailable" class="item viewmore_notify"
+	href="#/app/scheduled">View More</a> </ion-list> </ion-content> </ion-view>
+
+

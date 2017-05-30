@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title></title>
+
+<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+
+<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+-->
+
+<!-- ionic/angularjs js -->
+<style>
+.centered {
+	position: relative;
+	margin: 150px auto;
+	border-radius: 150px;
+	width: 300px;
+	height: 300px;
+}
+
+.centered img {
+	margin-bottom: 20px
+}
+/*.refbtn{
+		background-color: #ddd;
+		border-radius: 50%;
+		padding: 3px;
+	} */
+.centered a {
+	background: #03A9F4;
+	color: #fff;
+	padding: 10px 20px;
+	border-radius: 4px;
+	font-size: 18px;
+}
+.bar.bar-loading {
+  display: block;
+  height: 24px;
+  /* make the text centered vertically and horizontally */
+  text-align: center;
+  padding: 0; 
+  /* transition 'sliding down' (check below)*/
+  -webkit-transition: 200ms all;
+}
+
+</style>
+<script src="lib/ionic/js/ionic.bundle.js"></script>
+
+<!-- cordova script (this will be a 404 during development) -->
+<script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+<script src="cordova.js"></script>
+
+<!-- your app's js -->
+
+<script src="js/netCheck.js"></script>
+</head>
+<body class="view-with-ne" ng-app="batsInternet">
+	<ion-pane> <ion-content ng-controller="checkInternet">
+	<!-- <span ng-click="refresh()">Refresh</span>
+	<button ng-click="refresh()">
+		refresh
+	</button> -->
+
+	<div class="centered" align="center">
+		<img ng-src="img/wifi.png" />
+		<!-- <img ng-src="img/refresh.png" width="50" height="50" class="refbtn" ng-click="refresh()"/> -->
+		<a ng-click="refresh()">Try Again</a>
+	</div>
+	<div class="bar bar-footer">
+		<div class="bar bar-loading bar-calm" ng-show="internetAvailable">
+			Redirecting...
+		</div>
+	</div>
+	</ion-content> </ion-pane>
+</body>
+</html>

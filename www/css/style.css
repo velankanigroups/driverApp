@@ -1,0 +1,627 @@
+/* Empty. Add your own CSS if you like */
+@font-face{
+	font-family:'Socialize';
+	src:url('../lib/font/Socialize.ttf');
+}
+.bats_style{font-family:'Socialize';}
+.error-container {
+  margin: 5px 0;
+}
+.error-container:last-child {
+    margin: 5px 0 0;
+}
+.error {
+  padding: 10px 16px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #555;
+  vertical-align: middle;
+}
+.error i {
+  font-size: 24px;
+  color: #B83E2C;  
+  vertical-align: middle;
+}
+.last-error-container > .error {
+  padding: 10px 16px 0;
+}
+.has-errors {
+  border-bottom: 3px solid #B83E2C;
+}
+.no-errors {
+  border-bottom: 3px solid green;
+}
+.error.error_white {
+  color: #fff;
+  text-align: left;
+  display:none;
+}
+/*======================================>>>>>>>>>>>>>Trip Scheduled<<<<<<<<<<<===================================*/
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+.alignText{
+  text-align: left;
+  overflow: auto !important;
+  text-overflow:initial !important;
+  white-space:normal !important;
+}
+html,
+body,
+#onGoingMap{
+width: 100%;
+  height: 100%;
+}
+.endTripBtn,.onGoingBtn{position: absolute;top:10%;left: 5%;}
+
+
+
+/* From BATS_APP styles*/
+.angular-google-map-container { 
+  height: 100%; 
+}
+/*.angular-google-map-container { 
+  height:800px;
+}*/
+.select_on_map{    position: absolute;
+    z-index: 1000;
+    width: 200px;
+    height: 38px;}
+
+
+map {
+  width: 100%;
+  height: 100% !important;
+}
+
+.scroll {
+  height: 100%;
+}
+
+
+
+
+/*=====================DateTime Picker Style=======================*/
+    body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
+.popup-container.active .popup{width:340px;}
+.popup-body .datetimepicker {
+  min-height: 221px;
+}
+.popup-body .datetimepicker table {
+  width: 100%;
+}
+/*
+ * Use ionic icons instead of bootstrap's glyphicons 
+ * for arrows in the datetimepicker.
+ */
+.glyphicon {
+  vertical-align: top;
+  display: inline-block;
+  font-family: "Ionicons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.glyphicon:before {
+  vertical-align: top;
+  font-size: 32px;
+  line-height: 32px;
+  padding-right: 2px;
+  padding-left: 2px;
+  display: inline-block;
+  padding: 0 0 1px 0;
+}
+.glyphicon-arrow-right:before {
+  content: "\f10a";
+}
+.glyphicon-arrow-left:before{
+  content: "\f107";
+}
+
+
+/*=====================Latest/Last Location Style=======================*/
+.map_wrap {
+  height: 300px;
+}
+
+
+
+
+/*=====================Accordion Show/Hide List Onclick Style=======================*/
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+
+
+/*=====================Form Validation Error Style=======================*/
+.error-container {
+  margin: 5px 0;
+}
+.error-container:last-child {
+    margin: 5px 0 0;
+}
+.error {
+  padding: 10px 16px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #555;
+  vertical-align: middle;
+}
+.error i {
+  font-size: 24px;
+  color: #B83E2C;  
+  vertical-align: middle;
+}
+.last-error-container > .error {
+  padding: 10px 16px 0;
+}
+.has-errors {
+  border-bottom: 3px solid #B83E2C;
+}
+.no-errors {
+  border-bottom: 3px solid green;
+}
+.error.error_white {
+  color: #fff;
+  text-align: left;
+  display:none;
+}
+.showMinMaxErr {
+  padding: 10px 16px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #fff;
+  vertical-align: middle;
+  text-align: left;
+  display:none;
+}
+.showMinMaxErr i {
+  font-size: 24px;
+  color: #B83E2C;  
+  vertical-align: middle;
+}
+
+/*=====================Background image Style=======================*/
+/* .view-with-bg */
+.bats_style ion-view.view-with-bg{
+  background-image: url('../img/login_bg.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color:#464646;
+}
+.bats_style ion-view.view-with-splash{
+  background-image: url('../img/splash.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color:#464646;
+}
+
+ion-view.view-with-net{
+  background-image: url('../img/no-internet.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color:#464646;
+}
+
+/* .bats_style ion-view{
+  background-image: url('../img/inner_bg.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color:#464646;
+} */
+/* .bats_style ion-content{padding:15px} */
+.bats_style ion-content.menu_content{padding:0}
+.bats_style .bar-subheader.custom{height: 0;border: none;background: none;padding: 5px 15px 0 15px;}
+.bats_style .has-subheader-custom {top: 160px !important;}
+.bats_style .login-card-center{background-color:rgba(255,255,255,0.9);}
+.bats_style .login-card-center .item{background:none}
+.bats_style .item-icon-left .icon {color: #03A9F4;}
+
+/*=====================Live Tracking Style=======================*/
+.bats_style .mapWrap { height: 100%;}
+.bats_style .dark-bg.side_bar{background-color:rgba(68,68,68,0.8);}
+.bats_style .bar.bar-positive {border-color:#03A9F4;background-color:#03A9F4;}
+.bats_style .list.list-inset{padding:5px 0 15px 0;background:none;margin:0;}
+.bats_style .item.item-divider{background:#eeeeee;color:#03A9F4}
+.bats_style .item.item-divider h1{color:#03A9F4;}
+.bats_style .list-content{padding:10px;text-align:center;background:rgba(0,0,0,0.4);border-radius:0 0 5px 5px;}
+.bats_style .list-content label{color:#fff}
+.bats_style button.button.button-positive{background: #ff6138;margin: 0; padding: 0px 15px 0 15px;font-size: 15px; line-height: 1;  min-height: 38px;}
+.bats_style .button.button-positive.button_list{background:#03A9F4;margin:10px;font-size:14px;min-height:20px;padding:0 10px;line-height:30px;}
+@media screen and (max-width: 600px) {
+	.bats_style .has-subheader-custom {top: 210px !important;}
+	.bats_style .button.button-positive.button_list.live_track_btn {text-align: center;width: 95%;}
+	.bats_style .item.item-divider h1{color:#03A9F4;font-size: 24px;}
+}
+
+/*=====================Device Details Style=======================*/
+/* Custom Css for Radio Button */
+.bats_style .button-bar{padding:10px;text-align:center;background:rgba(0,0,0,0.4);border-radius:0 0 5px 5px;}
+.bats_style .item-radio .item-content {padding: 0px;background: none;}
+.bats_style .button-bar .button {min-height: 0;line-height: 30px;background: #fff;color: #03A9F4;}
+.bats_style .button-bar > .item-radio.button {padding: 0;border-color:#03A9F4;}
+.bats_style .item-radio input:checked + .radio-content .item-content {border-color: #03A9F4;background-color: #03A9F4;color:#fff;border-radius:0;}
+.bats_style .button.button-positive.button-outline.active, .button.button-positive.button-outline.activated {background-color: #4a87ee;
+box-shadow: none;color: #fff; }
+.bats_style .card .item:last-child, .list-inset .item:last-child {margin-bottom: 0;}
+.bats_style .item.item-toggle{background: none;color: #03A9F4;margin: 0;border: 0;padding:0}
+.bats_style .allocated{background:rgba(255,255,255,0.3);padding:10px;border-radius:3px;}
+.bats_style .button.button-calm.custom-button-calm {min-width: 47px;min-height: 47px;border-radius:50px;float:right;margin: 0px 13px 3px 0px;}
+.bats_style a.button.icon-right:before {float: none;padding:0}
+.bats_style .un-allocated{background:rgba(255,255,255,0.3);padding:10px;border-radius:3px;}
+.bats_style .list.allocated_style{padding:0;margin:20px 0 20px 0;}
+.bats_style .allocated_style .item.custom_item {padding:0px 0 0px 0;background:rgba(255,255,255,0.8);color:#03A9F4;border-radius:5px 5px 0 0;
+border:0;}
+.bats_style .allocated_style .item.allocated_style_inner{background-color: rgba(255,255,255,0.5);border-radius: 0;}
+.bats_style .allocated_style_inner h2{font-weight: bold;}
+.bats_style .allocated_style_inner p{color:#000000}
+.bats_style .allocated_style .toggle_live{background:none;padding:10px 0 12px 0;}
+.bats_style .toggle input:checked + .track {border-color:#03A9F4;background-color:#03A9F4;}
+.bats_style .item-toggle .toggle {position: absolute;top: 3px;right: 3px;z-index: 3;}
+.bats_style .bats_style{float: right;font-size: 20px;font-weight: bold;margin: 0 12px 0 0;text-transform: uppercase;}
+.bats_style .allocated_style .item.item-avatar{padding:0px 0 0px 0;background:none;border:0;}
+.bats_style .label{font-size: 14px;font-weight: bolder;}
+.bats_style .item.item-toggle.item_unallocated {background: rgba(255,255,255,0.8);margin: 15px 0;padding: 10px;text-align: center;
+border-radius: 3px;}
+
+
+/*=====================Latest Location Style=======================*/
+.bats_style .location_header{margin:10px 0 0 0;background:#eee;}
+.bats_style .location_body{background:rgba(0,0,0,0.4);border-radius:0 0 5px 5px;color:#fff}
+
+/*=====================Min Max Speed Style=======================*/
+.bats_style .item.item-input.item-floating-label.date_time_cal{background:rgba(255,255,255,0.5);color:#000;border:0;margin:10px;height: 30px;}
+.bats_style .item.item-input.item-floating-label.date_time_cal span{text-align:left;padding: 0;top: 0;}
+.bats_style .item.item-input.item-floating-label.date_time_cal input{padding: 0px 0 20px 0;}
+.bats_style .item.item-input.item-floating-label.date_time_cal ::-webkit-input-placeholder{color: #555;}
+.bats_style .min_max_dev h3{background: rgba(255,255,255,0.5);padding:5px 5px 5px 10px;margin:15px 0 15px 0;}
+.bats_style .item.item-input.item-floating-label.date_time_cal.hide_keyboard_label {padding:0}
+.bats_style .item.item-input.item-floating-label.date_time_cal input.hide_keyboard_input {height: 30px;margin: 0;padding: 0;
+width: 100%;background: none;text-indent: 10px;}
+
+/*=====================Material Design Custom Style=======================*/
+.bats_style md-radio-button .md-label{color:#fff}
+/* .bats_style md-radio-button.md-default-theme .md-off{border-color: rgba(255,255,255,1);} */
+
+
+/*=====================Settings menu popover Style=======================*/
+.bats_style ion-content.settings_menu_content{padding:0}
+.bats_style ion-content.settings_menu_content .item{background:none;border-color: #999;color: #000;}
+.bats_style ion-content.settings_menu_content .item-complex .item-content, 
+.bats_style ion-content.settings_menu_content .item-radio .item-content{background:none}
+.bats_style .popover{background:rgba(255,255,255,0.9);}
+
+/*=====================Modal popup Style=======================*/
+.bats_style .bar.bar-stable .title {color:#333;margin:0;}
+/* .bats_style .bar-stable .button.button-clear {color:#03A9F4;} */
+.bats_style .button.button-stable.modal-select-close-button{background:#03A9F4;color:#fff}
+.bats_style .item.item-text-wrap.item-modal{border:1px solid #03A9F4;color:#03A9F4;padding:10px 0px 10px 10px;
+margin:0 0 10px 0;background:#eee;border-radius:3px}
+
+/*=====================History Style=======================*/
+.bats_style .date-picker label{float:left}
+.bats_style .date-picker input{background:rgba(255,255,255,0.5);width:100%;height:40px;}
+.bats_style table.custom_table {border: 1px solid #ccc;width: 100%;margin:43px 0 0 0;padding:0;border-collapse: collapse;border-spacing: 0;}
+.bats_style table.custom_table tr {border: 1px solid #aaa;padding: 5px;background: rgba(255,255,255,0.6);}
+.bats_style table.custom_table th, table.custom_table td {padding: 10px;text-align: center;}
+.bats_style table.custom_table th {text-transform: uppercase;font-size: 14px;letter-spacing: 1px;font-weight:bold;}
+@media screen and (max-width: 600px) {
+.bats_style table.custom_table {border: 0;}
+.bats_style table.custom_table thead {display: none;}
+.bats_style table.custom_table tr {margin-bottom: 10px;display: block;border-bottom: 2px solid #ddd;}
+.bats_style table.custom_table td {display: block;text-align: right;font-size: 13px;border-bottom: 1px dotted #777;}
+.bats_style table.custom_table td:last-child {border-bottom: 0;}
+.bats_style table.custom_table td:before {content: attr(data-label);float: left;text-transform: uppercase;font-weight: bold;}
+}
+.label_Style{text-align: left;color: #fff;padding: 0 0 0 12px;}
+
+/*=====================Analytics Style=======================*/
+.bats_style .button-bar.button-bar-analytics {padding: 10px;text-align: center;background: none;border-radius: 0;}
+
+
+.space_bottom{height:30px;}
+ 
+
+.loadingIcon{position:absolute;margin:auto;left:40%;top:80%;width:50px}
+
+/*=====================Loading Icon Style=======================*/
+.wrap_load{background: rgba(0,0,0,0.5);width: 100%;height: 100%;position: absolute;z-index: 1000;}
+.loader{z-index: 1000;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
+
+
+
+.reCenter{position:absolute;left:4%;bottom:3%;z-index:1000;color:#fff;background:red;border-radius:3px;text-align:center;
+padding:10px;}
+
+.modal.landscape_modal{width: 100%;min-height: 100%;position: absolute;display: block;top: 0;left: 0;z-index: 1000;
+overflow: hidden;background:rgba(255,255,255,0.6)}
+.modal.landscape_modal ion-content{padding:0px}
+.modal.landscape_modal .analytics_landscape{margin:43px 0 0 0;}
+/* .analytics_landscape{min-width: 320px;max-width: 600px;margin: 0 auto;} */
+
+
+.sel_group_device{color:#fff}
+ion-footer-bar.bar-footer{height:auto;padding: 0;margin: 0;}
+.bats_style .button.button-positive.button_list .icon:before{font-size:32px;padding: 4px 10px 4px 5px;}
+.bats_style .button.button-positive.button_list h5{color:#fff;margin:0;padding:0px 0 4px 0}
+.show_hide_footer_btn{position:absolute;bottom:10%;right:0;background:#03A9F4;color:#fff;padding:10px}
+.bats_style ion-content.content_liveTracking{padding:0}
+
+.bats_style .ion-datetime-picker .time-buttons .button.button-positive{background:none;margin:0;padding:0;font-size:18px;}
+.bats_style .ion-datetime-picker .month-year .button.button-positive{background:none;margin:0;padding:0;font-size:18px;}
+
+.bats_style .has-footer {bottom:0;}
+.traffic_layer_btn{background:#fff;color:#565656;padding:11px;position:absolute;top:10px;left:130px;
+font-family:Roboto, Arial, sans-serif;font-size: 11px;border-radius:2px;box-shadow:rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;
+ width: 90px; text-align: center;}
+.traffic_layer_btn.select_traffic{color:#000;font-weight:500;}
+/* .traffic_layer_btn:hover{background:#EBEBEB;color:#000} */
+.legend_devtype{position:absolute;top:20%;right:0;background:#fff;color:#565656;padding:5px 10px 10px 15px;
+box-shadow:rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;}
+.legend_devtype li{padding: 3px 0 3px 0;}
+.wrap_type{width:15px;height:15px;float:left;margin:0 10px 0 0;}
+.geo {background-color:#f44336;}
+.speed {background-color:#ffde01;}
+.geospeed {background-color:#e59305;}
+.normalVehicle {background-color:#000;}
+.aliveVehicle {background-color:#0540E5;}
+.show_hide_legend_btn{position:absolute;top:20%;right:0;background:#fff;padding:10px;box-shadow:rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;}
+.wrap_type_show {width:15px;height:15px;float:left;margin: 5px 5px 5px 0px;}
+.list.custom_list:last-child {margin-bottom:65px;}
+
+
+
+.bats_style .allocated_style .item.custom_item.item_notification{border-radius:3px}
+.bats_style .allocated_style .item_notification .item.item-avatar {text-align:center;background:#03A9F4;color:#fff;
+min-height: 40px;width: 40px;height: 40px;border-radius: 30px;float: left;margin: 0 10px 0 0;}
+.bats_style .allocated_style .item_notification .item.item-avatar span {position:relative;top:10px;font-size:28px;
+font-weight:bold;}
+.bats_style .allocated_style .item.custom_item.item_notification .text_notify{white-space:normal;}
+.item.viewmore_notify{background: #03A9F4;border: 0;color: #fff;text-align: center;border-radius: 3px;}
+.encircle{border: 2px solid #000;padding: 8px 12px;border-radius: 20px;line-height: 37px;text-align: center;}
+.encircle:hover{cursor:pointer;}
+.encircleactive{border-color:#fff;background-color:#03A9F4;color:#fff;}
+.encircleavailable{background-color:#03A9F4;}
+.legendlabel{padding:10px;font-size:12px;}
+.legendHist{background-color: #ddd;padding: 12px 30px;width: 100%;height: 52px;}
+.encirclelegend{border:2px solid #000;padding: 8px 12px;border-radius: 20px;line-height: 27px;text-align: center;}
+.timeslot{font-size:12px;}
+.tile.title-history{text-align:center;background:#03A9F4;color:#fff;cursor:pointer}
+.activeHistory{background:#03A9F4;color:#333!important};
+.inactiveHistory{background:none;color:#000;border:1px solid #03A9F4;text-align: center;}
+.availableHistory{text-align:center;background:#03A9F4;color:#fff;cursor:pointer;border:2px solid #fff;}
+.disabledHistory{cursor:auto;opacity:0.3;border:1px solid #03A9F4;text-align: center;}
+.icon-history{font-size:50px}
+.loading-container .loading{font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;font-size: 18px;font-style: normal;font-variant: normal;font-weight: 500;line-height: 26.4px;padding:20px 60px;}
+.warning{color:#ff0000!important; font-weight:900;}
+   
+/*===============================================>>>>>>>>>>>>DRIVER APP NEW STYLES ADDED<<<<<<<<<<<<<<=====================================*/
+/*menu section css
+	it includes
+		a)side menu
+		b)head menu
+		c)notification icon
+*/
+ul li{font-family:'Socialize';}
+.barStyle{border-color: transparent !important;}
+.item-profile {height:150px;width:100%;background: #f2f2f2;}
+.item-avatar > img:first-child {max-width: 60px;max-height: 60px;}
+.userName{font-size:18px !important;text-overflow:ellipsis;font-weight:900;line-height:1.62857;}
+p.userName{font-size:18px !important;text-overflow:ellipsis;text-transform:capitalize;font-weight:900;}
+.userImage{padding: 2px; background-color: #ddd;border: 5px solid #f5d6c2;-webkit-transition: all .2s ease-in-out;-o-transition: all .2s ease-in-out;transition: all .2s ease-in-out;}
+.menuContent{top: 140px!important;}
+.icon_img{width:30px;margin-top:2px;}
+.icon_notify{width:25px;}
+.menulabel{font-size:15px;font-weight:900;margin-left:5px;}
+.scheduledCount{font-size:12px;font-weight:900;background-color: red;color:#fff;padding: 5px 10px;border-radius: 4px;}
+.completedCount{font-size:12px;font-weight:900;color:#797474;padding: 5px 10px;background:#ddd;margin-left:5px;border-radius: 4px;}
+/* .item-content{padding:16px 49px 16px 0px !important;} */
+.bar{padding:0px !important;height:60px!important;}
+.userSection{position: absolute;top:40px;align-items:center;}
+.bottomMenu{border:none !important;}
+.selectStatus{width:100%;height:40px;margin-bottom:10px;}
+.notifyCount{top:-50px!important;left:22px;}
+.right-buttons{margin-left:20px !important;}
+.bar .title{top:15px!important;font-size:20px;}
+.bar .title + .button:last-child, .bar > .button + .button:last-child, .bar > .button.pull-right, .bar .buttons.pull-right, .bar .title + .buttons{top:15px!important;}
+/*====================================>>>>>>>>>>>Scheduled<<<<<<<<<<<====================================================*/
+.updatedCard{margin:0px;border-radius:0px;background:#ffffff !important;}
+.cardPadding{padding:20px 30px;}
+.headerMenu{top:60px!important;}
+.updatedDivider{background:#ffffff !important;}
+.showShadow{-webkit-box-shadow: 0 8px 6px -6px #dcdcdc;-moz-box-shadow: 0 8px 6px -6px #dcdcdc;box-shadow: 0 8px 6px -6px #dcdcdc;}
+.tripName{font-family:'Socialize';font-size:18px!important;font-weight:400;width:350px;text-overflow:ellipsis !important;overflow: hidden !important;}
+.tripCode{color:#0060fe;font-size: 12px;font-weight: 400;}
+.tripSlot{color:#008564;font-size: 12px;font-weight: 400;}
+.timelist li{text-align: center;line-height: 1.435;font-size:14px;}
+.timelist li:FIRST-CHILD{color:#2dcc70;}
+.timelist li:LAST-CHILD{color:#ddd;}
+.timelist li:nth-child(2){font-size:16px;}
+.completedTimelist li{text-align: center;line-height: 1.435;font-size:14px;}
+.completedTimelist li:FIRST-CHILD{color:#ddd;}
+.completedTimelist li:LAST-CHILD{color:#000;}
+.evenDetail li, .eventList li{text-align: right;line-height: 1.435;font-size:12px;}
+.evenDetail li:FIRST-CHILD,.eventList li:FIRST-CHILD{color:#000000;}
+.evenDetail li:LAST-CHILD, .eventList li:LAST-CHILD{color:#dddddd;}
+.colorDrop{color:red!important;}
+.passengerSectionImg{width:45px;}
+.callSectionImg{width:30px;}
+.alignCenter{text-align: center;}
+.startBtn{min-width:120px;background-color:#2dcc70!important;}
+.vhCenter{margin:auto;}
+.passenger{font-size:14px !important;}
+.passDetail{font-size:16px !important;font-weight:700;}
+.imgdivP{width: 50px; height: 50px; position: absolute;left: 80%;top: 58%; margin-left: -25px; margin-top: -25px;}
+.imgdivH{width: 50px; height: 50px; position: absolute;right: 86%;top: 50%; margin-left: -25px; margin-top: -25px;}
+.itemStyle{padding:5px 0px !important;border-top:none;border-bottom:2px solid #dcdcdc !important;}
+.noBorderitem{padding:5px 0px !important;border:none;}
+.firstItemStyle{border-top:none;border-bottom:2px solid #dcdcdc !important;padding:20px 30px 0px 30px;}
+.lastItemStyle{padding:5px 0px !important;border-top:none;border-bottom:2px solid #bbbbbb !important;}
+.tripCancel{background:red;font-size:10px;color:#fff;border-radius:12px;padding:0px 8px;float:right;}
+.tripComplete{background:#2dcc70;font-size:10px;color:#fff;border-radius:12px;padding:0px 8px;float:right;}
+.tripDropped{background:#f08237;font-size:10px;color:#fff;border-radius:12px;padding:0px 8px;float:right;}
+.tripOnGoing{background:#0171c5;font-size:10px;color:#fff;border-radius:12px;padding:0px 8px;float:right;}
+.tripOnGoingDot{color: #0171c5;font-size: 4em;position: absolute;top: 30px;}
+.statusCancel{opacity:0.6;}
+.padd0{padding:0px !important;}
+.applyColor{background-color: #f8f8f8;}
+.noBorder{border-color:transparent !important;}
+.bgColor{background-color:#f3f3f3;}
+.marginBottom{margin-bottom:10px;}
+.startDot{color:#2dcc70;font-size:6em;position: absolute;top: 0px;}
+.dropDot{color:#f08237;font-size:6em;position: absolute;top: 0px;}
+.endDot{color:#fcd20a;font-size:6em;position: absolute;top: 0px;}
+.onGoingDot{color:#35ac19;font-size:2em;position: absolute;top: 0px;}
+.custCol{max-width:6%;}
+.markerDiv{text-align: right;}
+.markerImg{width:30px;}
+.customCol{flex: 0 0 40%;max-width:40%}
+.topBtn{top:15px;}
+.back-button{top:14px;}
+.borderBottom{border-bottom: 1px solid #ddd !important;}
+.verhorcenter{display: flex;align-items: center;justify-content: center;}
+.menuItem{border-width:0px !important;}
+.cardStyle{margin:20px 0px;}
+.labelStyle{position: absolute;right: 60px;top: -8px;color:#7f7f7f;}
+.customItem{padding:0px 0px !important;border-top:none;}
+.eventStyle{color:#438cac;}
+.scrollHeight{height:600px;}
+.itemOpacity{opacity:0.6;background: #ddd;}
+/*==============>>changing ionic default css<<================*/
+.list:last-child.card{margin-bottom:0px!important;}
+   
+   
+   
+ /*multi step progress bar starts*/
+
+  .container {
+      width: 100%;
+      height: 20px;
+  }
+  .progressbar {
+      counter-reset: step;
+  }
+  .progressbar li {
+      list-style-type: none;
+      width: 33%;
+      float: left;
+      font-size: 12px;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+      color: #7d7d7d;
+  }
+  .progressbar li:before {
+      width: 25px;
+      height: 25px;
+      content: counter(step);
+      counter-increment: step;
+      line-height: 20px;
+      border: 2px solid #7d7d7d;
+      display: block;
+      text-align: center;
+      margin: 0 auto 10px auto;
+      border-radius: 50%;
+      background-color: white;
+  }
+  .progressbar li:after {
+      width: 100%;
+      height: 2px;
+      content: '';
+      position: absolute;
+      background-color: #7d7d7d;
+      top: 15px;
+      left: -50%;
+      z-index: -1;
+  }
+  .progressbar li:first-child:after {
+      content:none;
+  }
+  .progressbar li.active {
+      color: green;
+  }
+  .progressbar li.active:before {
+      border-color: #55b776;
+	    content:"\2713 ";
+    
+  }
+  .progressbar li.active + li:after {
+      background-color: #55b776;
+	 
+  }
+.nodata_img {
+	width: 250px;
+	height: 250px;
+}
+
+.nodata_list {
+	-webkit-padding-start: 0px;
+}
+
+.centerData {
+	position: relative;
+}
+
+.nodata_list li {
+	list-style-type: none;
+}
+
+.nodata_list li>label {
+	font-size: 18px;
+}
+
+.nodata_list li>p {
+	font-size: 18px;
+}
+
+.nodata_list li>span {
+	font-size: 12px;
+	color: #333;
+	font-weight: 800;
+}
+/*multi step progress bar ends*/  
+   
+/*updated 08-03-2017*/
+.card {margin:20px 0px!important;}
+ 
+   
+   
