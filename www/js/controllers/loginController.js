@@ -52,6 +52,7 @@ driverApp.controller('LoginCtrl', function($scope, $state,$ionicPopup,$ionicPlat
 						});
 					}					
 					else if(result.err=="Some other User already logged in with same credentials."){ 
+						console.log(result.err); 
 						  alert(result.err);		  	  		  
 					}
 					else if(result=="Unauthorized"){
