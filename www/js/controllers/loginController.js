@@ -35,14 +35,6 @@ driverApp.controller('LoginCtrl', function($scope, $state,$ionicPopup,$ionicPlat
 					 console.log("calling login api");
 					 console.log(JSON.stringify(result));
 
-
-					 if(result=="null"){
-						  alert("Service Down");
-					}
-					else{
-						//nothing
-					}
-
 					if(result.hasOwnProperty("token")){
 
 						console.log("token is = "+result.token);
@@ -69,9 +61,9 @@ driverApp.controller('LoginCtrl', function($scope, $state,$ionicPopup,$ionicPlat
 				    else if(result.err=="Inactive"){
 						  alert("User is Inactive. Please Contact Admin");
 					}
-				  //   else if(result=="null"){
-					// 	  alert("Service Down");
-					// }
+				    else if(result=="null"){
+						  alert("Service Down");
+					}
 					
 				});  
 
