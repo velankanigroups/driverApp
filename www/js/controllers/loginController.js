@@ -39,8 +39,10 @@ driverApp.controller('LoginCtrl', function($scope, $state,$ionicPopup,$ionicPlat
 
 						console.log("token is = "+result.token);
 						window.localStorage.setItem( "token", result.token);
+						//window.localStorage.setItem( "token", "Yi14cuTK246GQrxt");
 						token=window.localStorage.getItem("token");
 						token_login=window.localStorage.getItem("token");
+						$state.go("app.scheduled");
 
 						var query_insert = "INSERT INTO Token (token) VALUES (?)";
 						$cordovaSQLite.execute(db, query_insert, [token_login]).then(function(res) {
@@ -81,6 +83,9 @@ driverApp.controller('LoginCtrl', function($scope, $state,$ionicPopup,$ionicPlat
   	  },function(err){
   		  console.log(err);
   	  });  
+
+				//imeiNumber ="5982a6c20f00500e"
+
 }
   
 });

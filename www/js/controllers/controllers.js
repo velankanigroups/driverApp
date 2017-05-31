@@ -14,11 +14,28 @@ angular.module('starter.controllers',['ionic'])
 		console.log(JSON.stringify(result));
 		console.log(">>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 		if(result!=null){
+			console.log("res");
 			if(!result.hasOwnProperty("err")){
 				$scope.driverInfo=result;
 			}
+			else if(result.err == "Expired Session"){
+			console.log("Expired Session");
+			var query = "DELETE FROM Token WHERE token = (?)";
+       		        $cordovaSQLite.execute(db, query, [token]).then(function(res) {
+       		            alert("Delete in DB -> " + JSON.stringify(res));
+       		            //alert("Token Deleted");
+						   console.log("Token Deleted");
+						   window.localStorage.setItem( "token","");
+						   $state.go('login');
+       		        }, function (err) {
+       		            //alert(err);
+       		        }); 
+					   $state.go('login');	
 		}
+		}
+		
 		else{
+			console.log("conect problem");
 			var alertPopup = $ionicPopup.alert({
 			       title: 'Notification Details',
 		    	   template: 'Connectivity Problem!..'
@@ -164,6 +181,10 @@ angular.module('starter.controllers',['ionic'])
 						fetchTripTable();
 						fetchTripCountTable();
 					}
+				}
+				else if(result.err == "Expired Session"){
+					console.log("login");
+					 $state.go('login');	 
 				}
 				else{
 			    	alert(result.err);

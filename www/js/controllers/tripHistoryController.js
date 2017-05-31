@@ -218,9 +218,12 @@ driverApp.controller('tripCtrl', function($rootScope, $scope, $state,
 		}
 	}
 	$scope.getEventName = function(type) {
+		console.log(type);
 		switch (type) {
 		case "0":
+		console.log(type);
 			return "PANIC";
+			
 			break;
 		case "3":
 			return "BATTERY";

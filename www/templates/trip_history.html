@@ -189,8 +189,7 @@
   		<!-- Completed Cards -->
 		<div ng-if="trips.status=='F'">
 			<div class="list card">
-				<div
-					class="item item-text-wrap">
+				<div class="item item-text-wrap">
 					<h3 class="tripName">{{trips.trip_name}}</h3>
 					<div class="row padd0">
 						<div class="col">
@@ -268,7 +267,7 @@
 				<div class="updatedCard card list borderBottom">
 					<div class="item item-text-wrap">
 						<div class="row padd0">
-							<div class="col-20 applyColor">
+							<div class="col-20 ">
 								<ul class="eventList">
 									<li>{{getTimeService(event.ts)}}</li>
 									<li>{{getDateService(event.ts)}}</li>
@@ -277,11 +276,11 @@
 							<!-- 0 panic ,3 battery, 4 overspeed,5 geo fence,7 cat -->
 							<div class="col-40 vhCenter">
 								<ul class="evenDetail">
-									<li><div class="verhorcenter"><img ng-src="{{getEventImgSrc(event.alarm_type)}}" class="markerImg"><label>getEventName(event.alarm_type)</label></div></li>
+									<li><div class="verhorcenter"><img ng-src="{{getEventImgSrc(event.alarm_type)}}" class="markerImg"><label>{{getEventName(event.alarm_type)}}</label></div></li>
 									<li><span>Vehicle no:{{event.vehicle_num}}</span></li>
 								</ul>
 							</div>
-							<div class="col-20 applyColor">
+							<div class="col-20 ">
 								<ul class="eventList">
 									<li>{{event.Velocity}}</li>
 									<li>KMPH</li>
@@ -302,11 +301,31 @@
 		<!-- Cancelled Cards -->
 		<div ng-if="trips.status=='C'">
 			<div class="updatedCard card list marginBottom">
-				<div class="updatedDivider item item-divider cardPadding noBorder">
+				<!--<div class="updatedDivider item item-divider cardPadding noBorder">
 					<h3 class="tripName">{{trips.trip_name}}</h3>
 					<span class="tripCode">tripcode#{{trips.trip_id}}</span><span
 						class="tripCancel">Cancelled</span>
+				</div>-->
+
+				<div class="item item-text-wrap">
+					<h3 class="tripName">{{trips.trip_name}}</h3>
+					<div class="row padd0">
+						<div class="col">
+							<span class="tripCode">tripcode#{{trips.trip_id}}</span><span
+								class="tripCancel">Cancelled</span>
+						</div>
+					</div>
+					<!--<div class="row padd0">
+						<div class="col col-80">
+							<span class="tripSlot">Scheduled Pickup:{{getTimeService(trips.td_start_point.ts)}}
+								&nbsp;&nbsp;Scheduled Drop:{{getTimeService(trips.td_end_point.ts)}} </span>
+						</div>
+					</div>-->
 				</div>
+
+
+
+
 
 				<div class="item item-text-wrap itemStyle statusCancel">
 					<div class="row padd0">
