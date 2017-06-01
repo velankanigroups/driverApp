@@ -166,7 +166,7 @@ $stateProvider.state('app', {
 				controller : 'tripCtrl'
 			}
 		}
-	/*}).state('app.changePwd', {
+	}).state('app.changePwd', {
 		cache : false,
 		url : '/changePwd',
 		views : {
@@ -174,7 +174,7 @@ $stateProvider.state('app', {
 				templateUrl : 'templates/changePwd.html',
 				controller : 'changePwdCtrl'
 			}
-		}*/
+		}
 	}).state('app.logout', {
 		cache : false,
 		url : '/logout',
