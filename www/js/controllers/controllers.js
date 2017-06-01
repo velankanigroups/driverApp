@@ -546,6 +546,11 @@ angular.module('starter.controllers',['ionic'])
 	            //alert(err);
 	        });
 	      $state.go('login');
-	}	    
+	}
+
+	// $scope.showC = function(){
+	// 	console.log("clicked change pswd");
+	// 	$state.go('app.changePwd');
+	// }	    
 });
 

@@ -622,6 +622,9 @@ p.userName{font-size:18px !important;text-overflow:ellipsis;text-transform:capit
    
 /*updated 08-03-2017*/
 .card {margin:20px 0px!important;}
- 
-   
+
+.changePwdPad{
+  padding: 54px 40px;
+} 
+
    
