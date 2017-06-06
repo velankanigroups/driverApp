@@ -6,27 +6,30 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <form name="changePass" ng-submit="doLogin(ReNewPassword)">
+    <form name="changePass" ng-submit="doLogin(ReNewPassword,CurPassword)">
       <div class="list changePwdPad">
+        <span class="input-label cp_txtwidth">Current Password</span>
         <label class="item item-input">
-          <span class="input-label">Current Password</span>
+          
           <input type="password" ng-model="CurPassword">
         </label>
+        <span class="input-label cp_txtwidth">New Password</span>
         <label class="item item-input">
-          <span class="input-label">New Password</span>
+          
           <input type="password" name="NewPassword" ng-model="NewPassword" >
           
         </label>
+        <span class="input-label cp_txtwidth">Confirm Password</span>
         <label class="item item-input">
-          <span class="input-label">Confirm Password</span>
+          
           <input type="password" name="ReNewPassword" ng-model="ReNewPassword" pw-check="NewPassword">
         </label>
       
         <!--<span class="mismatch" ng-show="changePass.ReNewPassword.$error.pwmatch">Password Mismatch</span>-->
         <span class="mismatch" ng-show="ReNewPassword!=NewPassword">Password Mismatch</span>
-        <label class="item">
-          <button class="button button-block button-positive" ng-disabled="" type="submit" >Log in</button>
-        </label>
+        <!--<label class="item">-->
+          <button class="button button-block button-positive" ng-disabled="" type="submit" >UPDATE</button>
+        <!--</label>-->
       </div>
     </form>
   </ion-content>

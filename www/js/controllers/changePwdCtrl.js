@@ -11,11 +11,11 @@ $scope.hidePasswordMismatch = function(){
 }
 
 
-$scope.doLogin = function(ChangePwd){
+$scope.doLogin = function(ChangePwd,CurrPwd){
     $scope.ChangePassJson = {};
     $scope.ChangePassJson.token= window.localStorage.getItem("token");
-    console.log(ChangePwd);
-
+    $scope.ChangePassJson.currentpassword = CurrPwd;
+    console.log($scope.CurPassword);
     $scope.ChangePassJson.newpassword = ChangePwd;
     driverAppFactory.callApi("POST",apiURL+"driver/app/changepwd",$scope.ChangePassJson,function(result){
         console.log(JSON.stringify(result));
@@ -33,10 +33,13 @@ $scope.doLogin = function(ChangePwd){
             });
            
         }
-
-
-
-
+        else if(result.err == "present password is invalid/not matching"){
+            var alertpopup  = $ionicPopup.alert({
+                title:'Error',
+                template:'Current Password is invalid'
+            });
+        }
+        
     });
 }
 
