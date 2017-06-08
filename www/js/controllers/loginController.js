@@ -84,7 +84,7 @@ driverApp.controller('LoginCtrl', function($scope, $state,$ionicPopup,$ionicPlat
   		  console.log(err);
   	  });  
 
-				//imeiNumber ="5982a6c20f00500e"
+			//	imeiNumber ="5982a6c20f00500e"
 
 }
   

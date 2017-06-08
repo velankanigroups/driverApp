@@ -15,12 +15,12 @@
 		<div ng-if="trips.status=='S' && trip_status=='S'">
 			<!-- Scheduled Cards -->
 			<div class="updatedCard card list marginBottom">
-				<div class="item item-text-wrap itemStyle">
+				
 				<div class="updatedDivider item item-divider cardPadding noBorder">
 					<h3 class="tripName">{{trips.trip_name}}</h3>
 					<span class="tripCode">tripcode#{{trips.trip_id}}</span>
 				</div>
-				</div>
+				
 				<div class="item item-text-wrap itemStyle">
 					<div class="row padd0">
 						<div class="col-20 applyColor">
@@ -74,7 +74,10 @@
 								<div class="col imgdivP">
 									<img alt="phone" src="../www/img/call.png"
 										class="callSectionImg">
+										<div>{{trips.customers.cn}}</div>
+										 <a ng-href="tel:{{trips.customers.cn}}">Call Me</a>
 								</div>
+								
 							</div>
 						</div>
 					</div>

@@ -1,16 +1,5 @@
 driverApp.controller('changePwdCtrl', function($scope, $state,$ionicPopup,$ionicPlatform,$cordovaSQLite,driverAppFactory,$window) {
 
-
-$scope.hidePasswordMismatch = function(){
-    console.log("calling cgange");
-    if($scope.NewPassword === $scope.ReNewPassword){
-        $scope.isMismatch = false;
-    }else{
-        $scope.isMismatch = true;
-    }
-}
-
-
 $scope.doLogin = function(ChangePwd,CurrPwd){
     $scope.ChangePassJson = {};
     $scope.ChangePassJson.token= window.localStorage.getItem("token");
