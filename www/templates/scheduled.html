@@ -1,5 +1,5 @@
-<ion-view view-title="Scheduled Trips"> <ion-content
-	class="headerMenu" ng-init="listTrips()">
+<ion-view view-title="Scheduled Trips"> 
+	<ion-content class="headerMenu" ng-init="listTrips()">
 <div class="bgColor">
 	<ion-list>
 	<div class="fixSelect" scroll="false">
@@ -97,8 +97,7 @@
 		<!-- Completed Cards -->
 		<div ng-if="trips.status=='F' && trip_status=='F'">
 			<div class="updatedCard card list">
-				<div
-					class="updatedDivider item item-divider firstItemStyle cardPadding">
+				<div class="updatedDivider item item-divider firstItemStyle cardPadding">
 					<h3 class="tripName">{{trips.trip_name}}</h3>
 					<div class="row padd0">
 						<div class="col">

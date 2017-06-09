@@ -189,21 +189,25 @@
   		<!-- Completed Cards -->
 		<div ng-if="trips.status=='F'">
 			<div class="list card">
-				<div class="item item-text-wrap">
+				
+					<div class="updatedDivider item item-divider cardPadding noBorder">
 					<h3 class="tripName">{{trips.trip_name}}</h3>
+					
 					<div class="row padd0">
 						<div class="col">
 							<span class="tripCode">tripcode#{{trips.trip_id}}</span><span
 								class="tripComplete">Completed</span>
 						</div>
 					</div>
+					
+					
 					<div class="row padd0">
 						<div class="col col-80">
 							<span class="tripSlot">Scheduled Pickup:{{getTimeService(trips.td_start_point.ts)}}
 								&nbsp;&nbsp;Scheduled Drop:{{getTimeService(trips.td_end_point.ts)}} </span>
 						</div>
 					</div>
-				</div>
+					</div>
 
 				<div class="item item-text-wrap">
 					<div class="row">

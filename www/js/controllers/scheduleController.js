@@ -8,8 +8,10 @@
 */
 driverApp.controller('scheduledController', function($rootScope,$scope,$rootScope,$cordovaSQLite,$ionicPopup,$ionicPlatform,$state,$interval,driverAppFactory,driverAppService) {
   	//console.log(token);
-	var windowHeight=(window.screen.availHeight-200);
+	var windowHeight=(window.screen.availHeight-180); 
 	windowHeight=windowHeight+"px";
+	console.log(window.screen.availHeight);
+	console.log(windowHeight);
 	$scope.availableScroller={
 			"height":windowHeight
 	}

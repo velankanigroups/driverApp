@@ -77,6 +77,9 @@ driverApp.controller('logoutController', function($rootScope,$scope, $http, $cor
            	  console.log(status);
            	  console.log(headers);
            	  console.log(config);
+				//  if(data.err == "Invalid User"){
+				// 	 window.localStorage.setItem( "token","");
+				//  }
        	  });
         } else {
            console.log('Not sure!');

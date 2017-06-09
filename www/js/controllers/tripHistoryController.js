@@ -44,7 +44,7 @@ driverApp.controller('tripCtrl', function($rootScope, $scope, $state,
 			$scope.shownTrip = trip;
 		}
 	};
-	var windowHeight = (window.screen.availHeight - 200);
+	var windowHeight = (window.screen.availHeight - 180); 
 	windowHeight = windowHeight + "px";
 	$scope.availableScroller = {
 		"height" : windowHeight

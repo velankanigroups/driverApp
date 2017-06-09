@@ -261,11 +261,11 @@ ion-view.view-with-net{
 .bats_style .dark-bg.side_bar{background-color:rgba(68,68,68,0.8);}
 .bats_style .bar.bar-positive {border-color:#03A9F4;background-color:#03A9F4;}
 .bats_style .list.list-inset{padding:5px 0 15px 0;background:none;margin:0;}
-.bats_style .item.item-divider{background:#eeeeee;color:#03A9F4}
+.bats_style .item.item-divider{background:#eeeeee;color:#03A9F4; padding: 12px 12px;}
 .bats_style .item.item-divider h1{color:#03A9F4;}
 .bats_style .list-content{padding:10px;text-align:center;background:rgba(0,0,0,0.4);border-radius:0 0 5px 5px;}
 .bats_style .list-content label{color:#fff}
-.bats_style button.button.button-positive{background: #ff6138;margin: 0; padding: 0px 15px 0 15px;margin-top: 38px;font-size: 15px; line-height: 1;  min-height: 38px;}
+.bats_style button.button.button-positive{background: #ff6138;margin: 0; padding: 0px 15px 0 15px;font-size: 15px; line-height: 1;  min-height: 38px;} 
 .bats_style .button.button-positive.button_list{background:#03A9F4;margin:10px;font-size:14px;min-height:20px;padding:0 10px;line-height:30px;}
 @media screen and (max-width: 600px) {
 	.bats_style .has-subheader-custom {top: 210px !important;}
@@ -465,7 +465,7 @@ p.userName{font-size:18px !important;text-overflow:ellipsis;text-transform:capit
 .bar .title + .button:last-child, .bar > .button + .button:last-child, .bar > .button.pull-right, .bar .buttons.pull-right, .bar .title + .buttons{top:15px!important;}
 /*====================================>>>>>>>>>>>Scheduled<<<<<<<<<<<====================================================*/
 .updatedCard{margin:0px;border-radius:0px;background:#ffffff !important;}
-.cardPadding{padding:20px 30px;}
+.cardPadding{    padding: 5px 13px;}
 .headerMenu{top:60px!important;}
 .updatedDivider{background:#ffffff !important;}
 .showShadow{-webkit-box-shadow: 0 8px 6px -6px #dcdcdc;-moz-box-shadow: 0 8px 6px -6px #dcdcdc;box-shadow: 0 8px 6px -6px #dcdcdc;}
@@ -622,6 +622,10 @@ p.userName{font-size:18px !important;text-overflow:ellipsis;text-transform:capit
    
 /*updated 08-03-2017*/
 .card {margin:20px 0px!important;}
+
+.card .item {padding: 0px;}
+
+
 
 .changePwdPad{
   padding: 54px 40px;
