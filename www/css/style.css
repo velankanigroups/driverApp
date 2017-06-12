@@ -472,9 +472,9 @@ p.userName{font-size:18px !important;text-overflow:ellipsis;text-transform:capit
 .tripName{font-family:'Socialize';font-size:18px!important;font-weight:400;width:300px;text-overflow:ellipsis !important;overflow: hidden !important;}
 .tripCode{color:#0060fe;font-size: 12px;font-weight: 400;}
 .tripSlot{color:#008564;font-size: 12px;font-weight: 400;}
-.timelist li{text-align: center;line-height: 1.435;font-size:14px;}
+.timelist li{text-align: center;line-height: 1.435;font-size:12px;padding-top: 2px;}
 .timelist li:FIRST-CHILD{color:#2dcc70;}
-.timelist li:LAST-CHILD{color:#ddd;}
+.timelist li:LAST-CHILD{color:#b2b2b2;}
 .timelist li:nth-child(2){font-size:16px;}
 .completedTimelist li{text-align: center;line-height: 1.435;font-size:14px;}
 .completedTimelist li:FIRST-CHILD{color:#ddd;}
@@ -487,12 +487,12 @@ p.userName{font-size:18px !important;text-overflow:ellipsis;text-transform:capit
 .callSectionImg{width:30px;}
 .alignCenter{text-align: center;}
 .startBtn{min-width:120px;background-color:#2dcc70!important;}
-.vhCenter{margin:auto;}
-.passenger{font-size:14px !important;}
+.vhCenter{margin:auto;    padding-left: 8%;}
+.passenger{font-size:14px !important;} 
 .passDetail{font-size:16px !important;font-weight:700;}
-.imgdivP{width: 50px; height: 50px; position: absolute;left: 80%;top: 58%; margin-left: -25px; margin-top: -25px;}
-.imgdivH{width: 50px; height: 50px; position: absolute;right: 86%;top: 50%; margin-left: -25px; margin-top: -25px;}
-.itemStyle{padding:5px 0px !important;border-top:none;border-bottom:2px solid #dcdcdc !important;}
+.imgdivP{width: 50px; height: 50px; position: absolute;left: 88%;top: 58%; margin-left: -25px; margin-top: -25px;}
+.imgdivH{width: 50px; height: 50px; position: absolute;right: 84%;top: 50%; margin-left: -25px; margin-top: -25px;}
+.itemStyle{border-top:none;border:1px solid #dcdcdc !important;}
 .noBorderitem{padding:5px 0px !important;border:none;}
 .firstItemStyle{border-top:none;border-bottom:2px solid #dcdcdc !important;padding:20px 30px 0px 30px;}
 .lastItemStyle{padding:5px 0px !important;border-top:none;border-bottom:2px solid #bbbbbb !important;}
@@ -621,7 +621,7 @@ p.userName{font-size:18px !important;text-overflow:ellipsis;text-transform:capit
 /*multi step progress bar ends*/  
    
 /*updated 08-03-2017*/
-.card {margin:20px 0px!important;}
+.card {margin:17px 0px!important;    margin-bottom: 0px !important;}
 
 .card .item {padding: 0px;}
 

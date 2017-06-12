@@ -16,11 +16,11 @@
   	<!-- Running Cards -->
 		<div ng-if="trips.status=='R'">
 			<div class="list card">
-				<div class="item item-text-wrap">
+				<div class="updatedDivider item item-divider cardPadding noBorder">
 					<h3 class="tripName">{{trips.trip_name}}</h3>
 					<div class="row padd0">
 						<div class="col">
-							<span class="tripCode">tripcode#{{trips.trip_id}}</span>
+							<span class="tripCode">{{trips.trip_id}}</span>
 							<span class="tripOnGoingDot">.</span>
 							<span class="tripOnGoing">Ongoing</span>
 						</div>
@@ -99,7 +99,7 @@
 					<h3 class="tripName">{{trips.trip_name}}</h3>
 					<div class="row padd0">
 						<div class="col">
-							<span class="tripCode">tripcode#{{trips.trip_id}}</span><span
+							<span class="tripCode">{{trips.trip_id}}</span><span
 								class="tripDropped">Dropped</span>
 						</div>
 					</div>
@@ -195,7 +195,7 @@
 					
 					<div class="row padd0">
 						<div class="col">
-							<span class="tripCode">tripcode#{{trips.trip_id}}</span><span
+							<span class="tripCode">{{trips.trip_id}}</span><span
 								class="tripComplete">Completed</span>
 						</div>
 					</div>
@@ -315,7 +315,7 @@
 					<h3 class="tripName">{{trips.trip_name}}</h3>
 					<div class="row padd0">
 						<div class="col">
-							<span class="tripCode">tripcode#{{trips.trip_id}}</span><span
+							<span class="tripCode">{{trips.trip_id}}</span><span
 								class="tripCancel">Cancelled</span>
 						</div>
 					</div>

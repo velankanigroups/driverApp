@@ -84,7 +84,7 @@ driverApp.controller('LoginCtrl', function($scope, $state,$ionicPopup,$ionicPlat
   		  console.log(err);
   	  });  
 
-				//imeiNumber ="80b4aa0933ba47c7"
+				//imeiNumber ="5982a6c20f00500e" 
 
 }
   

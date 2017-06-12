@@ -1,24 +1,33 @@
-<ion-view view-title="Scheduled Trips"> 
-	<ion-content class="headerMenu" ng-init="listTrips()">
-<div class="bgColor">
-	<ion-list>
+<ion-view view-title="Scheduled Trips">
+	<ion-nav-title ng-init="listTrips()">
 	<div class="fixSelect" scroll="false">
+		<select ng-model="trip_status" class="selectStatus"
+			placeholder="select trip status" ng-options="opt.name in tripOptions">
+					</select>
+	</div>
+	</ion-nav-title> 
+	<ion-content class="headerMenu" >
+	<div class="bgColor">
+	<ion-list>
+		<p>{{trip_status}}</p>
+	<!--<div class="fixSelect" scroll="false">
 		<select ng-model="trip_status" class="selectStatus"
 			placeholder="select trip status">
 			<option value="S" selected>Scheduled</option>
 			<option value="F">Finished</option>
 			<option value="C">Cancelled</option>
 		</select>
-	</div>
+	</div>-->
 	<ion-scroll zooming="true" direction="y" ng-style="availableScroller">
 	<div ng-repeat="trips in displayScheduled | filter :{'status':trip_status}">
 		<div ng-if="trips.status=='S' && trip_status=='S'">
 			<!-- Scheduled Cards -->
+			
 			<div class="updatedCard card list marginBottom">
 				
 				<div class="updatedDivider item item-divider cardPadding noBorder">
 					<h3 class="tripName">{{trips.trip_name}}</h3>
-					<span class="tripCode">tripcode#{{trips.trip_id}}</span>
+					<span class="tripCode">{{trips.trip_id}}</span>
 				</div>
 				
 				<div class="item item-text-wrap itemStyle">
@@ -71,11 +80,12 @@
 						</div>
 						<div class="col-10">
 							<div class="row">
-								<div class="col imgdivP">
+								<div class="col imgdivP" ng-repeat="customerInfo in trips.customers">
+									<a ng-href="{{'tel:'+customerInfo.cn}}">
 									<img alt="phone" src="../www/img/call.png"
-										class="callSectionImg">
-										<div>{{trips.customers.cn}}</div>
-										 <a ng-href="tel:{{trips.customers.cn}}">Call Me</a>
+										class="callSectionImg" >
+										<!--<div>{{trips.customers.cn}}</div>-->
+									</a>	 
 								</div>
 								
 							</div>
@@ -83,7 +93,7 @@
 					</div>
 				</div>
 				<div
-					class="updatedDivider item item-divider lastItemStyle showShadow">
+					class="updatedDivider item item-divider lastItemStyle showShadow itemStyle">
 					<div class="row">
 						<div class="col col-center alignCenter">
 							<button  ng-click="startTrip(trips)" class="button button-balanced startBtn">Start
@@ -101,7 +111,7 @@
 					<h3 class="tripName">{{trips.trip_name}}</h3>
 					<div class="row padd0">
 						<div class="col">
-							<span class="tripCode">tripcode#{{trips.trip_id}}</span><span
+							<span class="tripCode">{{trips.trip_id}}</span><span
 								class="tripComplete">Completed</span>
 						</div>
 					</div>
@@ -172,7 +182,7 @@
 			<div class="updatedCard card list marginBottom">
 				<div class="updatedDivider item item-divider cardPadding noBorder">
 					<h3 class="tripName">{{trips.trip_name}}</h3>
-					<span class="tripCode">tripcode#{{trips.trip_id}}</span><span
+					<span class="tripCode">{{trips.trip_id}}</span><span
 						class="tripCancel">Cancelled</span>
 				</div>
 
@@ -222,5 +232,6 @@
 	 <!-- ./More Trip Info --> </ion-item> </ion-item> <!-- ./Trip List -->
 	</ion-scroll> </ion-list>
 </div>
-</ion-content> </ion-view>
+</ion-content> 
+</ion-view>
 
