@@ -16,14 +16,17 @@ driverApp.controller('scheduledController', function($rootScope,$scope,$rootScop
 			"height":windowHeight
 	}
 	$scope.trip_status="S";
+//$scope.trip.trip_status = "S";
 $scope.tripOptions = [
-	{name:'Schedule',value:"S"},
-	{name:'Finished',value:"F"},
-	{name:"cancelled",value:"C"}
-]
+	{name:'Schedule Trip',value:"S"},
+	{name:'Finished Trip',value:"F"},
+	{name:"Cancelled Trip",value:"C"} 
+];
 
 
-
+$scope.update = function(opt){
+	$scope.trip_status = opt;
+}
 
 
 	var deregisterFirst = $ionicPlatform.registerBackButtonAction(

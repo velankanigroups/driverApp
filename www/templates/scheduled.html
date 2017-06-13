@@ -1,16 +1,30 @@
 <ion-view view-title="Scheduled Trips">
 	<ion-nav-title ng-init="listTrips()">
 	<div class="fixSelect" scroll="false">
+		
 		<select ng-model="trip_status" class="selectStatus"
-			placeholder="select trip status" ng-options="opt.name in tripOptions">
-					</select>
+			placeholder="select trip status" ng-change="update(trip_status)">
+		<option ng-repeat="opt in tripOptions" value="{{opt.value}}">{{opt.name}}</option>
+		
+		</select>
+		
 	</div>
+	
+			<!--<div class="fixSelect" scroll="false">
+		<select ng-model="trip_status" class="selectStatus"
+			placeholder="select trip status">
+			<option value="S" selected>Scheduled</option>
+			<option value="F">Finished</option>
+			<option value="C">Cancelled</option>
+		</select>
+	</div>-->
 	</ion-nav-title> 
 	<ion-content class="headerMenu" >
 	<div class="bgColor">
 	<ion-list>
-		<p>{{trip_status}}</p>
-	<!--<div class="fixSelect" scroll="false">
+		
+		
+			<!--<div class="fixSelect" scroll="false">
 		<select ng-model="trip_status" class="selectStatus"
 			placeholder="select trip status">
 			<option value="S" selected>Scheduled</option>
@@ -20,7 +34,7 @@
 	</div>-->
 	<ion-scroll zooming="true" direction="y" ng-style="availableScroller">
 	<div ng-repeat="trips in displayScheduled | filter :{'status':trip_status}">
-		<div ng-if="trips.status=='S' && trip_status=='S'">
+		<div ng-if="trips.status=='S' && trip_status=='S'"> 
 			<!-- Scheduled Cards -->
 			
 			<div class="updatedCard card list marginBottom">
