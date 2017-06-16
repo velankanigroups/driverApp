@@ -3,10 +3,14 @@
   <div class="list card">
   	<div class="item item-divider">
   		<div class="row">
-  			<div class="col-33"><button class="button button-positive" ng-click="today()">Today</button></div>
-  			<div class="col-67 dateSection verhorcenter">
+  			<div class="col-32"><button class="button button-positive" ng-click="today()">Today</button></div>
+  			<div class="col-34 dateSection verhorcenter">
   					<label class="input-label labelStyle">From</label>
-                    <input class="item item-input item-floating-label date_time_cal" id="start_alarm_Dt"  name="start_date" type="date"  ng-model="hist.startDate"  ng-change="showTripHistory(hist)" required/>
+                    <input class="item item-input item-floating-label date_time_cal" id="start_alarm_Dt"  name="start_date" type="date"  ng-model="hist.startDate" ng-change="showTripHistory(hist)"   required/>
+             </div>
+			 <div class="col-34 dateSection verhorcenter">
+  					<label class="input-label labelStyle">To</label>
+                    <input class="item item-input item-floating-label date_time_cal" id="end_alarm_Dt"  name="end_date" type="date"  ng-model="hist.endDate"  ng-change="showTripHistory(hist)" required/>
              </div>           
   		</div>
   	</div>

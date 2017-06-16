@@ -81,9 +81,10 @@ driverApp.controller('tripCtrl', function($rootScope, $scope, $state,
 		$scope.day = document.getElementById("start_alarm_Dt").value;
 		// console.log(JSON.stringify(hist));
 		var stVal = document.getElementById("start_alarm_Dt").value;
+		var stVal1 = document.getElementById("end_alarm_Dt").value;
 		// var edVal=document.getElementById("end_alarm_Dt").value;
 		var startDate = stVal;// hist.startDate;
-		var endDate = stVal;// hist.endDate;
+		var endDate = stVal1;// hist.endDate;
 		// var devID = hist.searchDeviceModel.devid;
 		var myStDate = startDate.split("-");
 		var newStDate = myStDate[1] + "/" + myStDate[0] + "/" + myStDate[2];
@@ -95,7 +96,7 @@ driverApp.controller('tripCtrl', function($rootScope, $scope, $state,
 
 		var myEdDate = endDate.split("-");
 		var newEdDate = myEdDate[1] + "/" + myEdDate[0] + "/" + myEdDate[2];
-		var d = new Date(new Date(stVal).getTime());
+		var d = new Date(new Date(stVal1).getTime());
 		d.setHours(23);
 		d.setMinutes(59);
 		d.setSeconds(59);
