@@ -44,14 +44,14 @@ driverApp.controller('LoginCtrl', function($scope, $state,$ionicPopup,$ionicPlat
 						token_login=window.localStorage.getItem("token");
 						$state.go("app.scheduled");
 
-						// var query_insert = "INSERT INTO Token (token) VALUES (?)";
-						// $cordovaSQLite.execute(db, query_insert, [token_login]).then(function(res) {
-						// 	console.log("inserting token into db");
-						// 	$state.go("app.scheduled");	
-						// }, function (err) {
-						// 	// alert("Insert Token in DB err -> " +
-						// 	// JSON.stringify(err));
-						// });
+						var query_insert = "INSERT INTO Token (token) VALUES (?)";
+						$cordovaSQLite.execute(db, query_insert, [token_login]).then(function(res) {
+							console.log("inserting token into db");
+							$state.go("app.scheduled");	
+						}, function (err) {
+							// alert("Insert Token in DB err -> " +
+							// JSON.stringify(err));
+						});
 					}					
 					else if(result.err=="Some other Device already logged in with same credentials"){ 
 						console.log(result.err); 
@@ -74,17 +74,17 @@ driverApp.controller('LoginCtrl', function($scope, $state,$ionicPopup,$ionicPlat
   function chkImei(){
   	console.log("check IMEI");
   	  /* fetch the IMEI stored while loading */
-  	  // var query ="SELECT * FROM Device_IMEI";
-  	  // $cordovaSQLite.execute(db, query, []).then(function(res) {
-  		//   // console.log(res);
-  		//   // console.log(JSON.stringify(res));
-  		//   imeiNumber =res.rows.item(0).imei;
-  		//  // alert(imeiNumber);
-  	  // },function(err){
-  		//   console.log(err);
-  	  // });  
+  	  var query ="SELECT * FROM Device_IMEI";
+  	  $cordovaSQLite.execute(db, query, []).then(function(res) {
+  		  // console.log(res);
+  		  // console.log(JSON.stringify(res));
+  		  imeiNumber =res.rows.item(0).imei;
+  		 // alert(imeiNumber);
+  	  },function(err){
+  		  console.log(err);
+  	  });  
 
-				imeiNumber ="5982a6c20f00500e" 
+				//imeiNumber ="5982a6c20f00500e" 
 
 }
   

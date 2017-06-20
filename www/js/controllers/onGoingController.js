@@ -1,7 +1,7 @@
 /*
 On Going trips screen is rendered in this js file
 */
-driverApp.controller('onGoingController', function($scope,$rootScope,$ionicPopup,$ionicPlatform,$state,$cordovaSQLite,$cordovaGeolocation,$interval,driverAppFactory,driverAppService) {
+driverApp.controller('onGoingController', function($scope,$rootScope,$ionicPopup,$ionicPlatform,$state,$cordovaSQLite,$cordovaGeolocation,$interval,driverAppFactory,driverAppService,$window) {
 	var deregisterFirst = $ionicPlatform.registerBackButtonAction(
 		      function() {
 		    	  //alert("Back Disabled");
@@ -59,7 +59,7 @@ driverApp.controller('onGoingController', function($scope,$rootScope,$ionicPopup
 	  
 	var directionsService = new google.maps.DirectionsService();
     var directionsDisplay = new google.maps.DirectionsRenderer();
-	  
+  
 	  function routeService(source,destination){
 		  
 		var request = {
@@ -121,6 +121,9 @@ function update(){
         });
 		
 }/***********************/
+
+
+
 	$scope.initOnGoingMap=function(){
 		
 		/***************************************************************************/
@@ -193,7 +196,42 @@ function update(){
 		$scope.getCurrentLocation();
 	};	
 	
+	$scope.startNavigate = function(){
+	console.log("navigation");
+
+	if($scope.tripData.status=="D"){
+		var startloc = new google.maps.LatLng($scope.tripData.td_destination.lat,$scope.tripData.td_destination.long);
+     	var endloc = new google.maps.LatLng($scope.tripData.td_end_point.lat,$scope.tripData.td_end_point.long); 
+	}
+	else if($scope.tripData.status=="R"){
+		var startloc = new google.maps.LatLng($scope.tripData.td_start_point.lat,$scope.tripData.td_start_point.long);
+    var endloc = new google.maps.LatLng($scope.tripData.td_destination.lat,$scope.tripData.td_destination.long);
+	}
+
+	 
+	 
+
 	
+
+	
+
+	startloc = startloc.toString().replace("(","").replace(")","").replace(" ","");
+	endloc = endloc.toString().replace("(","").replace(")","").replace(" ","");
+
+	console.log(startloc);
+	console.log(endloc);
+
+    if(ionic.Platform.isAndroid() || ionic.Platform.isWebView()){
+		console.log("android");
+      var link = ""+"https://maps.google.com/maps?saddr="+startloc+"&daddr="+endloc;
+	  console.log(link);
+      window.open(link,"_system","location=no");
+    }
+    if(ionic.Platform.isIOS() || ionic.Platform.isIPad()){
+      var link = ""+"http://maps.apple.com/maps?saddr="+startloc+"&daddr="+endloc;
+      window.open(link,"_system","location=no");
+    }
+  };
 	
 	/***********************************************ngoint function ends*****************************************************************/	
 	//location marker...........................

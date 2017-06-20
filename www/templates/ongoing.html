@@ -1,14 +1,22 @@
 <ion-view view-title="On-Going Trip"> 
 <ion-content ng-init="select()">
-<div ng-hide="tripNotOngoing" id="onGoingMap" style="height: 75%"></div>
+<div ng-hide="tripNotOngoing" ng-click="startNavigate()" style="margin-top:30px">Start navigation</div>	
+<div ng-hide="tripNotOngoing" id="onGoingMap" style="height: 65%"></div>
+
 <div ng-hide="tripNotOngoing" id="directions-panel"></div>
 
+	
+
+
 <div ng-hide="tripNotOngoing" class="container">
+	
 	<ul class="progressbar">
 		<li class="active">START TRIP</li>
 		<li class={{drop}}>DROP PASSENGER</li>
 		<li class={{end}}>END TRIP</li>
+		
 	</ul>
+	
 </div>
 
 
