@@ -50,7 +50,7 @@
       <ion-list>        
         <ion-item class="menuItem" menu-toggle href="#/app/scheduled"  ng-click="deleteTripNotificationLength()">
         	<div class="row">
-        		<div class="col"><img src="../www/img/schedule.png" class="icon_img"/></div>
+        		<div class="col-10"><img src="../www/img/schedule.png" class="icon_img"/></div>
         		<div class="col"><label class="menulabel">Scheduled Trip</label></div>
         		<div class="col"><span class="scheduledCount">{{tripNotifyLength<10 && tripNotifyLength>0?"0"+tripNotifyLength:tripNotifyLength}} new</span><span class="completedCount">{{completedTripCount<10 && completedTripCount>0 ?"0"+completedTripCount:completedTripCount}}</span></div>
         	</div>

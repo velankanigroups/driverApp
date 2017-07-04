@@ -28,6 +28,7 @@ driverApp.controller('tripCtrl', function($rootScope, $scope, $state,
 	$scope.historyNotAvailable = true;
 	$scope.hist = {};
 	$scope.hist.startDate = new Date();
+	$scope.hist.endDate = new Date();
 	var now = new Date(), maxDate = now.toISOString().substring(0, 10);
 	document.getElementById('start_alarm_Dt').setAttribute('max', maxDate);
 

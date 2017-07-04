@@ -265,7 +265,7 @@ ion-view.view-with-net{
 .bats_style .item.item-divider h1{color:#03A9F4;}
 .bats_style .list-content{padding:10px;text-align:center;background:rgba(0,0,0,0.4);border-radius:0 0 5px 5px;}
 .bats_style .list-content label{color:#fff}
-.bats_style button.button.button-positive{background: #ff6138;margin: 0; padding: 0px 15px 0 15px;font-size: 15px; line-height: 1;  min-height: 38px;} 
+.bats_style button.button.button-positive{background: #ff6138;margin: 0; padding: 0px 15px 0 15px;font-size: 15px; line-height: 1;  min-height: 38px;margin-top: 15px;} 
 .bats_style .button.button-positive.button_list{background:#03A9F4;margin:10px;font-size:14px;min-height:20px;padding:0 10px;line-height:30px;}
 @media screen and (max-width: 600px) {
 	.bats_style .has-subheader-custom {top: 210px !important;}
@@ -331,7 +331,7 @@ width: 100%;background: none;text-indent: 10px;}
 .bats_style .popover{background:rgba(255,255,255,0.9);}
 
 /*=====================Modal popup Style=======================*/
-.bats_style .bar.bar-stable .title {color:#333;margin:0;}
+.bats_style .bar.bar-stable .title {color:#333;margin:0; margin-top: -4px;}
 /* .bats_style .bar-stable .button.button-clear {color:#03A9F4;} */
 .bats_style .button.button-stable.modal-select-close-button{background:#03A9F4;color:#fff}
 .bats_style .item.item-text-wrap.item-modal{border:1px solid #03A9F4;color:#03A9F4;padding:10px 0px 10px 10px;
@@ -458,7 +458,8 @@ p.userName{font-size:18px !important;text-overflow:ellipsis;text-transform:capit
 .bar{padding:0px !important;height:60px!important;}
 .userSection{position: absolute;top:40px;align-items:center;}
 .bottomMenu{border:none !important;}
-.selectStatus{height:40px;margin-bottom:10px; border: none; background: #f9f9f9;}
+.selectStatus{height:40px;margin-bottom:10px; border: none; background: #f9f9f9;    font-size: 19px;
+    color: #444;}
 .notifyCount{top:-50px!important;left:22px;}
 .right-buttons{margin-left:20px !important;}
 .bar .title{top:15px!important;font-size:20px;}
@@ -487,19 +488,26 @@ p.userName{font-size:18px !important;text-overflow:ellipsis;text-transform:capit
 .callSectionImg{width:30px;}
 .alignCenter{text-align: center;}
 .startBtn{min-width:120px;background-color:#2dcc70!important;}
-.vhCenter{margin:auto;    padding-left: 8%;}
+.vhCenter{margin:auto;    padding-left: 4%;    padding-right: 8%;}
 .passenger{font-size:14px !important;} 
 .passDetail{font-size:16px !important;font-weight:700;}
 .imgdivP{width: 50px; height: 50px; position: absolute;left: 88%;top: 58%; margin-left: -25px; margin-top: -25px;}
 .imgdivH{width: 50px; height: 50px; position: absolute;right: 84%;top: 50%; margin-left: -25px; margin-top: -25px;}
-.itemStyle{border-top:none;border:1px solid #dcdcdc !important;}
+.itemStyle{border-top:none;border-top:1px solid #dcdcdc !important;padding: 0px;}
 .noBorderitem{padding:5px 0px !important;border:none;}
 .firstItemStyle{border-top:none;border-bottom:2px solid #dcdcdc !important;padding:20px 30px 0px 30px;}
-.lastItemStyle{padding:5px 0px !important;border-top:none;border-bottom:2px solid #bbbbbb !important;}
-.tripCancel{background:red;font-size:10px;color:#fff;border-radius:12px;padding:0px 8px;float:right;}
+.lastItemStyle{padding:5px 0px !important;} /*border-top:none;border-bottom:2px solid #bbbbbb !important;*/
+.tripCancel{background:red;    font-size: 10px;
+    color: #fff;
+    border-radius: 12px;
+    padding: 0px 8px;
+    float: right;
+    margin-right: 14%;}
 .tripComplete{background:#2dcc70;font-size:10px;color:#fff;border-radius:12px;padding:0px 8px;float:right;margin-right: 14%;}
 .tripDropped{background:#f08237;font-size:10px;color:#fff;border-radius:12px;padding:0px 8px;float:right;}
-.tripOnGoing{background:#0171c5;font-size:10px;color:#fff;border-radius:12px;padding:0px 8px;float:right;}
+.tripOnGoing{background:#0171c5;font-size:10px;color:#fff;border-radius:12px;padding: 0px 8px;
+    float: right;
+    margin-right: 14%;}
 .tripOnGoingDot{color: #0171c5;font-size: 4em;position: absolute;top: 30px;}
 .statusCancel{opacity:0.6;}
 .padd0{padding:0px !important;}
@@ -522,7 +530,7 @@ p.userName{font-size:18px !important;text-overflow:ellipsis;text-transform:capit
 .menuItem{border-width:0px !important;}
 .cardStyle{margin:20px 0px;}
 .labelStyle{position: absolute;top: -4px;color:#7f7f7f;margin-left: 21px}
-.customItem{padding:0px 0px !important;border-top:none;}
+.customItem{padding:0px 0px !important;border-top:none;    margin-left: -60px;}
 .eventStyle{color:#438cac;}
 .scrollHeight{height:600px;}
 .itemOpacity{opacity:0.6;background: #ddd;}
@@ -634,3 +642,31 @@ p.userName{font-size:18px !important;text-overflow:ellipsis;text-transform:capit
 cp_error_txt{
     color: red;
 }   
+.th_width{
+  width: 90%;
+}
+
+.og_navigate{
+       margin-top: 20px;
+    float: right;
+    margin-bottom: 5px;
+    margin-right: 14px;
+    font-size: 20px;
+    /* vertical-align: middle; */
+    background: #f1f1f1;
+    /* color: #fff; */
+    padding: 2px 12px 4px 12px;
+    border-radius: 6px;
+    box-shadow: 1px 1px 1px 1px #afacac;
+}
+
+.og_nav_txt{
+    float: left;
+    margin-top: 8px;
+    margin-right: 7px;
+}
+
+.og_nav_icon{
+  color: #f51909;
+    font-size: 30px;
+}

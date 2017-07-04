@@ -308,12 +308,12 @@
 		<!-- Completed Cards -->
 		<!-- Cancelled Cards -->
 		<div ng-if="trips.status=='C'">
-			<div class="updatedDivider item item-divider cardPadding noBorder">
-				<!--<div class="updatedDivider item item-divider cardPadding noBorder">
+			<!--<div class="updatedCard card list marginBottom">
+				<div class="updatedDivider item item-divider cardPadding noBorder">
 					<h3 class="tripName">{{trips.trip_name}}</h3>
 					<span class="tripCode">tripcode#{{trips.trip_id}}</span><span
 						class="tripCancel">Cancelled</span>
-				</div>-->
+				</div>
 
 				<div class="item item-text-wrap">
 					<h3 class="tripName">{{trips.trip_name}}</h3>
@@ -323,14 +323,33 @@
 								class="tripCancel">Cancelled</span>
 						</div>
 					</div>
+					<div class="row padd0">
+						<div class="col col-80">
+							<span class="tripSlot">Scheduled Pickup:{{getTimeService(trips.td_start_point.ts)}}
+								&nbsp;&nbsp;Scheduled Drop:{{getTimeService(trips.td_end_point.ts)}} </span>
+						</div>
+					</div>
+				</div>
+				</div>-->
+
+				<div class="updatedDivider item item-divider cardPadding noBorder">
+					<h3 class="tripName">{{trips.trip_name}}</h3>
+					
+					<div class="row padd0">
+						<div class="col">
+							<span class="tripCode">{{trips.trip_id}}</span><span
+								class="tripCancel">Cancelled</span>
+						</div>
+					</div>
+					
+					
 					<!--<div class="row padd0">
 						<div class="col col-80">
 							<span class="tripSlot">Scheduled Pickup:{{getTimeService(trips.td_start_point.ts)}}
 								&nbsp;&nbsp;Scheduled Drop:{{getTimeService(trips.td_end_point.ts)}} </span>
 						</div>
 					</div>-->
-				</div>
-
+					</div>
 
 
 
@@ -363,11 +382,11 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			
 		</div>
 		<!-- Cancelled Cards -->
 	</div>
-	<div class="row" ng-show="historyNotAvailable">
+	<div class="row th_width" ng-show="historyNotAvailable">
 		<div class="col verhorcenter" align="center">
 			<div class="centerData">
 				<ul class="nodata_list">
