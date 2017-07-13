@@ -117,14 +117,17 @@ driverApp.service('driverAppService', function($ionicPopup) {
 	};
 	this.getTime = function(ts) {		
 		var d = new Date(Number(ts));
-		//console.log(d.getDate()+"-"+d.getMonth()+"-"+d.getFullYear());		
+		console.log(d.getDate()+"-"+d.getMonth()+"-"+d.getFullYear());
+		var date = d.getDate();
+		var month = d.getMonth();
+		var year = d.getFullYear();		
 		var hours = d.getHours();
 		  var minutes = d.getMinutes();
 		  var ampm = hours >= 12 ? 'pm' : 'am';
 		  hours = hours % 12;
 		  hours = hours ? hours : 12; // the hour '0' should be '12'
 		  minutes = minutes < 10 ? '0'+minutes : minutes;
-		  var strTime = hours + ':' + minutes + ' ' + ampm;
+		  var strTime = date+'/'+month+'/'+year+ ' '+ hours + ':' + minutes + ' ' + ampm;
 		return strTime;
 	};
 	this.giveAddress=function(lt,lg, cb){
