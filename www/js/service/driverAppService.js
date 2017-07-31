@@ -117,9 +117,9 @@ driverApp.service('driverAppService', function($ionicPopup) {
 	};
 	this.getTime = function(ts) {		
 		var d = new Date(Number(ts));
-		console.log(d.getDate()+"-"+d.getMonth()+"-"+d.getFullYear());
+		//console.log(d.getDate()+"-"+d.getMonth()+"-"+d.getFullYear());
 		var date = d.getDate();
-		var month = d.getMonth();
+		var month = d.getMonth()+1;
 		var year = d.getFullYear();		
 		var hours = d.getHours();
 		  var minutes = d.getMinutes();

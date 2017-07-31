@@ -4,16 +4,17 @@
 	ng-repeat="event in notifyEvents">
 	<ion-item class="item-stable custom_item item_notification"
 		ng-if="event.alarm_type == 'PAT'"> <!-- Events -->
-	<div class="updatedCard card list borderBottom">
+	<div class="updatedCard card list borderBottom evePadd">
 		<div class="item item-text-wrap">
 			<div class="row padd0">
-				<div class="col-20 applyColor">
+				<div class="col-20 applyColor backcolor">
 					<ul class="eventList">
 						<li>{{getTimeService(event.ts)}}</li>
-						<li>{{getDateService(event.ts)}}</li>
+						<!--<li>{{getDateService(event.ts)}}</li>-->
 					</ul>
 				</div>
-				<div class="col-40 vhCenter">
+				<div class="col-40">
+					<!--vhCenter-->
 					<ul class="evenDetail">
 						<li><div class="verhorcenter">
 								<img src="../www/img/pat.png" class="markerImg"><label>PANIC</label>
@@ -21,9 +22,9 @@
 						<li><span>Vehicle no:{{event.vehicle_num}}</span></li>
 					</ul>
 				</div>
-				<div class="col-20 applyColor">
+				<div class="col-20 applyColor backcolor">
 					<ul class="eventList">
-						<li>{{event.Velocity}}</li>
+						<li>{{event.velocity}}</li>
 						<li>KMPH</li>
 					</ul>
 				</div>
@@ -37,16 +38,16 @@
 	<!-- Events --> </ion-item>
 	<ion-item class="item-stable custom_item item_notification"
 		ng-if="event.alarm_type == 'BAT'"> <!-- Events -->
-	<div class="updatedCard card list borderBottom">
+	<div class="updatedCard card list borderBottom evePadd">
 		<div class="item item-text-wrap">
 			<div class="row padd0">
-				<div class="col-20 applyColor">
+				<div class="col-20 applyColor backcolor">
 					<ul class="eventList">
 						<li>{{getTimeService(event.ts)}}</li>
-						<li>{{getDateService(event.ts)}}</li>
+						<!--<li>{{getDateService(event.ts)}}</li>-->
 					</ul>
 				</div>
-				<div class="col-40 vhCenter">
+				<div class="col-40 ">
 					<ul class="evenDetail">
 						<li><div class="verhorcenter">
 								<img src="../www/img/bat.png" class="markerImg"><label>BATTERY</label>
@@ -54,9 +55,9 @@
 						<li><span>Vehicle no:{{event.vehicle_num}}</span></li>
 					</ul>
 				</div>
-				<div class="col-20 applyColor">
+				<div class="col-20 applyColor backcolor">
 					<ul class="eventList">
-						<li>{{event.Velocity}}</li>
+						<li>{{event.velocity}}</li>
 						<li>KMPH</li>
 					</ul>
 				</div>
@@ -70,16 +71,16 @@
 	<!-- Events --> </ion-item>
 	<ion-item class="item-stable custom_item item_notification"
 		ng-if="event.alarm_type == 'overspeed'"> <!-- Events -->
-	<div class="updatedCard card list borderBottom">
+	<div class="updatedCard card list borderBottom evePadd">
 		<div class="item item-text-wrap">
 			<div class="row padd0">
-				<div class="col-20 applyColor">
+				<div class="col-20 applyColor backcolor">
 					<ul class="eventList">
 						<li>{{getTimeService(event.ts)}}</li>
-						<li>{{getDateService(event.ts)}}</li>
+						<!--<li>{{getDateService(event.ts)}}</li>-->
 					</ul>
 				</div>
-				<div class="col-40 vhCenter">
+				<div class="col-40 ">
 					<ul class="evenDetail">
 						<li><div class="verhorcenter">
 								<img src="../www/img/spe.png" class="markerImg"><label>OVERSPEED</label>
@@ -87,9 +88,9 @@
 						<li><span>Vehicle no:{{event.vehicle_num}}</span></li>
 					</ul>
 				</div>
-				<div class="col-20 applyColor">
+				<div class="col-20 applyColor backcolor">
 					<ul class="eventList">
-						<li>{{event.Velocity}}</li>
+						<li>{{event.velocity}}</li>
 						<li>KMPH</li>
 					</ul>
 				</div>
@@ -103,16 +104,16 @@
 	<!-- Events --> </ion-item>
 	<ion-item class="item-stable custom_item item_notification"
 		ng-if="event.alarm_type == 'geofence'"> <!-- Events -->
-	<div class="updatedCard card list borderBottom">
+	<div class="updatedCard card list borderBottom evePadd">
 		<div class="item item-text-wrap">
 			<div class="row padd0">
-				<div class="col-20 applyColor">
+				<div class="col-20 applyColor backcolor">
 					<ul class="eventList">
 						<li>{{getTimeService(event.ts)}}</li>
-						<li>{{getDateService(event.ts)}}</li>
+						<!--<li>{{getDateService(event.ts)}}</li>-->
 					</ul>
 				</div>
-				<div class="col-40 vhCenter">
+				<div class="col-40 ">
 					<ul class="evenDetail">
 						<li><div class="verhorcenter">
 								<img src="../www/img/geo.png" class="markerImg"><label>GEOFENCE</label>
@@ -120,9 +121,9 @@
 						<li><span>Vehicle no:{{event.vehicle_num}}</span></li>
 					</ul>
 				</div>
-				<div class="col-20 applyColor">
+				<div class="col-20 applyColor backcolor">
 					<ul class="eventList">
-						<li>{{event.Velocity}}</li>
+						<li>{{event.velocity}}</li>
 						<li>KMPH</li>
 					</ul>
 				</div>
@@ -136,16 +137,16 @@
 	<!-- Events --> </ion-item>
 	<ion-item class="item-stable custom_item item_notification"
 		ng-if="event.alarm_type == 'CAT'"> <!-- Events -->
-	<div class="updatedCard card list borderBottom">
+	<div class="updatedCard card list borderBottom evePadd">
 		<div class="item item-text-wrap">
 			<div class="row padd0">
-				<div class="col-20 applyColor">
+				<div class="col-20 applyColor backcolor">
 					<ul class="eventList">
 						<li>{{getTimeService(event.ts)}}</li>
-						<li>{{getDateService(event.ts)}}</li>
+						<!--<li>{{getDateService(event.ts)}}</li>-->
 					</ul>
 				</div>
-				<div class="col-40 vhCenter">
+				<div class="col-40 ">
 					<ul class="evenDetail">
 						<li><div class="verhorcenter">
 								<img src="../www/img/cat.png" class="markerImg"><label>POWER
@@ -154,9 +155,9 @@
 						<li><span>Vehicle no:{{event.vehicle_num}}</span></li>
 					</ul>
 				</div>
-				<div class="col-20 applyColor">
+				<div class="col-20 applyColor backcolor">
 					<ul class="eventList">
-						<li>{{event.Velocity}}</li>
+						<li>{{event.velocity}}</li>
 						<li>KMPH</li>
 					</ul>
 				</div>
@@ -169,7 +170,7 @@
 	</div>
 	<!-- Events --> </ion-item>
 </div>
-<ion-item class="item-stable custom_item item_notification"
+<ion-item class="item-stable custom_item item_notification en_img"
 	ng-if="noEventNotifications">
 <div class="row" ng-show="noTripNotifications">
 	<div class="col verhorcenter" align="center">
@@ -182,7 +183,8 @@
 		</div>
 	</div>
 </div>
-</ion-item> <a ng-if="eventNotificationsAvailable" class="item viewmore_notify"
+</ion-item> 
+<a ng-if="eventNotificationsAvailable" class="item viewmore_notify"
 	href="#/app/tripsData">View More</a> </ion-list> </ion-content> </ion-view>
 
 

@@ -51,16 +51,17 @@
         <ion-item class="menuItem" menu-toggle href="#/app/scheduled"  ng-click="deleteTripNotificationLength()">
         	<div class="row">
         		<div class="col-10"><img src="../www/img/schedule.png" class="icon_img"/></div>
-        		<div class="col"><label class="menulabel">Scheduled Trip</label></div>
-        		<div class="col"><span class="scheduledCount">{{tripNotifyLength<10 && tripNotifyLength>0?"0"+tripNotifyLength:tripNotifyLength}} new</span><span class="completedCount">{{completedTripCount<10 && completedTripCount>0 ?"0"+completedTripCount:completedTripCount}}</span></div>
-        	</div>
+        		<div class="col menuSpace"><label class="menulabel">Scheduled Trip</label></div>
+        		<div class="col"><span class="scheduledCount">{{tripNotifyLength<10 && tripNotifyLength>0?"0"+tripNotifyLength:tripNotifyLength}} new</span></div>
+						<!--<span class="completedCount">{{completedTripCount<10 && completedTripCount>0 ?"0"+completedTripCount:completedTripCount}}</span>-->
+					</div>
         </ion-item>
         <ion-item class="menuItem" menu-toggle href="#/app/ongoing" ng-class="{'itemOpacity':ongoingStatus!=true}">
         	<div class="row">
         		<div class="col-10">
         			<img src="../www/img/ongoing.png" class="icon_img"/>
         		</div>
-        		<div class="col">
+        		<div class="col menuSpace">
         			<label class="menulabel">Ongoing Trip <span ng-show="ongoingStatus" class="onGoingDot">.</span></label>
         		</div>
         		<div class="col"></div>
@@ -69,7 +70,7 @@
          <ion-item class="menuItem" menu-toggle href="#/app/tripsData">
          	<div class="row">
         		<div class="col-10"><img src="../www/img/trip--history.png" class="icon_img"/></div>
-        		<div class="col"><label class="menulabel">Trip History</label></div>
+        		<div class="col menuSpace"><label class="menulabel">Trip History</label></div>
         		<div class="col"></div>
         	</div>	
         </ion-item> 

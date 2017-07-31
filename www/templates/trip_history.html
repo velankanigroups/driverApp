@@ -3,7 +3,7 @@
   <div class="list card">
   	<div class="item item-divider">
   		<div class="row">
-  			<div class="col-32"><button class="button button-positive" ng-click="today()">Today</button></div>
+  			<div class="col-32"><button class="button button-positive th_today" ng-click="today()">Today</button></div>
   			<div class="col-34 dateSection verhorcenter">
   					<label class="input-label labelStyle">From</label>
                     <input class="item item-input item-floating-label date_time_cal" id="start_alarm_Dt"  name="start_date" type="date"  ng-model="hist.startDate" ng-change="showTripHistory(hist)"   required/>
@@ -32,7 +32,13 @@
 					<div class="row padd0">
 						<div class="col col-80">
 							<span class="tripSlot">Scheduled Pickup:{{getTimeService(trips.td_start_point.ts)}}
-								&nbsp;&nbsp;Scheduled End:{{getTimeService(trips.td_end_point.ts)}} </span>
+								</span>
+						</div>
+						
+					</div>
+					<div class="row padd0">
+						<div class="col col-80">
+							<span class="tripSlot">Scheduled Drop:{{getTimeService(trips.td_end_point.ts)}} </span>
 						</div>
 					</div>
 				</div>
@@ -49,7 +55,8 @@
 							<span class="startDot">.</span>
 						</div>
 						<div class="col-75 vhCenter">
-							<label><reverse-geocode lat="{{trips.drv_start_point.lat}}"lng="{{trips.drv_start_point.long}}"/></label>
+							<label>Electronics City Phase 1, Electronic City, Bengaluru, Karnataka 560100</label>
+							<!--<label><reverse-geocode lat="{{trips.drv_start_point.lat}}"lng="{{trips.drv_start_point.long}}"/></label>-->
 							<a ng-click="open(trips.drv_start_point)">link to see in map</a>
 						</div>
 					</div>
@@ -57,28 +64,30 @@
 				<ion-item class="item-accordion" ng-show="isEventShown(trips)" ng-repeat="event in teh_data.events">
 				<!-- Events -->
 				<div class="list card">
-					<div class="item item-text-wrap">
+					<div class="item item-text-wrap Tevehistory">
 						<div class="row padd0">
-							<div class="col-20 applyColor">
+							<div class="col-20 applyColor backcolor">
 								<ul class="eventList">
 									<li>{{getTimeService(event.ts)}}</li>
-									<li>{{getDateService(event.ts)}}</li>
+									<!--<li>{{getDateService(event.ts)}}</li>-->
 								</ul>
 							</div>
 							<!-- 0 panic ,3 battery, 4 overspeed,5 geo fence,7 cat -->
-							<div class="col-40 vhCenter">
+							<div class="col-40">
 								<ul class="evenDetail">
 									<li><div class="verhorcenter"><img ng-src="{{getEventImgSrc(event.alarm_type)}}" class="markerImg"><label>{{getEventName(event.alarm_type)}}</label></div></li>
-									<li><span>Vehicle no:{{event.vehicle_num}}</span></li>
+									<li><span>Vehicle no:{{vehicle}}</span></li>
+									
 								</ul>
 							</div>
-							<div class="col-20 applyColor">
+							<div class="col-20 applyColor backcolor">
 								<ul class="eventList">
 									<li>{{event.Velocity}}</li>
 									<li>KMPH</li>
 								</ul>
 							</div>
-							<div class="col-20 markerDiv">
+							<div class="col-20 ">
+								<!--markerDiv-->
 								<img alt="phone" src="../www/img/location.png"
 											class="markerImg" ng-click="showEventNotifyPop(event)"/>
 							</div>
@@ -127,7 +136,8 @@
 							<span class="startDot">.</span>
 						</div>
 						<div class="col-60 vhCenter">
-							<label><reverse-geocode lat="{{trips.drv_start_point.lat}}"lng="{{trips.drv_start_point.long}}"/></label>
+							<label>Electronics City Phase 1, Electronic City, Bengaluru, Karnataka 560100</label>
+							<!--<label><reverse-geocode lat="{{trips.drv_start_point.lat}}"lng="{{trips.drv_start_point.long}}"/></label>-->
 							<a ng-click="open(trips.drv_start_point)">link to see in map</a>
 						</div>
 					</div>
@@ -137,7 +147,7 @@
 						<div class="col-20">
 							<ul class="completedTimelist">
 								<li>DROP</li>
-								<li>{{getTimeService(trips.drv_drop_point.ts)}}</li>
+								<!--<li>{{getTimeService(trips.drv_drop_point.ts)}}</li>-->
 							</ul>
 						</div>
 						<div class="col-20 custCol">
@@ -154,10 +164,10 @@
 				<div class="list card">
 					<div class="item item-text-wrap">
 						<div class="row padd0">
-							<div class="col-20 applyColor">
+							<div class="col-20 applyColor backcolor">
 								<ul class="eventList">
 									<li>{{getTimeService(event.ts)}}</li>
-									<li>{{getDateService(event.ts)}}</li>
+									<!--<li>{{getDateService(event.ts)}}</li>-->
 								</ul>
 							</div>
 							<!-- 0 panic ,3 battery, 4 overspeed,5 geo fence,7 cat -->
@@ -167,7 +177,7 @@
 									<li><span>Vehicle no:{{event.vehicle_num}}</span></li>
 								</ul>
 							</div>
-							<div class="col-20 applyColor">
+							<div class="col-20 applyColor backcolor">
 								<ul class="eventList">
 									<li>{{event.Velocity}}</li>
 									<li>KMPH</li>
@@ -222,33 +232,38 @@
 					<div class="row">
 						<div class="col-20">
 							<ul class="completedTimelist">
-								<li>START</li>
+								<li class="colorStart">START</li>
 								<li>{{getTimeService(trips.drv_start_point.ts)}}</li>
 							</ul>
 						</div>
-						<div class="col-20 custCol">
+						<!--<div class="col-20 custCol">
 							<span class="startDot">.</span>
-						</div>
-						<div class="col-55 vhCenter">
-							<label><reverse-geocode lat="{{trips.drv_start_point.lat}}"lng="{{trips.drv_start_point.long}}"/></label>
-							<a ng-click="open(trips.drv_start_point)">link to see in map</a>
+						</div>-->
+						<div class="col-80 vhCenter">
+							<label>Electronics City Phase 1, Electronic City, Bengaluru, Karnataka 560100</label>
+							<!--<label><reverse-start lat="{{trips.drv_start_point.lat}}"lng="{{trips.drv_start_point.long}}"/></label>-->
+							<!--<label>{{givelt(trips.drv_start_point.lat,trips.drv_start_point.long)}}</label>-->
+							<br>
+							<a ng-click="open(trips.drv_start_point)">show map</a>
 						</div>
 					</div>
 				</div>
 				<div class="item item-text-wrap">
 					<div class="row">
-						<div class="col-20">
+						<div class="col-20 marginAuto">
 							<ul class="completedTimelist">
-								<li>DROP</li>
-								<li>{{getTimeService(trips.drv_drop_point.ts)}}</li>
+								<li class="colorDropD">DROP</li>
+								<!--<li>{{getTimeService(trips.drv_drop_point.ts)}}</li>-->
 							</ul>
 						</div>
-						<div class="col-20 custCol">
+						<!--<div class="col-20 custCol">
 							<span class="dropDot">.</span>
-						</div>
-						<div class="col-55 vhCenter">
-							<label><reverse-geocode lat="{{trips.drv_drop_point.lat}}"lng="{{trips.drv_drop_point.long}}"/></label>
-							<a ng-click="open(trips.drv_drop_point)">link to see in map</a>
+						</div>-->
+						<div class="col-80 vhCenter">
+							<label><reverse-drop lat="{{trips.drv_drop_point.lat}}"lng="{{trips.drv_drop_point.long}}"/></label>
+							<!--<label>{{givelt(trips.drv_drop_point.lat,trips.drv_drop_point.long)}}</label>-->
+							
+							<a ng-click="open(trips.drv_drop_point)">show map</a>
 						</div>
 					</div>
 				</div>
@@ -256,17 +271,21 @@
 					<div class="row">
 						<div class="col-20">
 							<ul class="completedTimelist">
-								<li>END</li>
+								<li class="colorDrop">END</li>
 								<li>{{getTimeService(trips.drv_end_point.ts)}}</li>
 							</ul>
 						</div>
-						<div class="col-20 custCol">
+						<!--<div class="col-20 custCol">
 							<span class="endDot">.</span>
-						</div>
-						<div class="col-55 vhCenter">
-							<label><reverse-geocode lat="{{trips.drv_end_point.lat}}"lng="{{trips.drv_end_point.long}}"/>
-							</label>
-							<a ng-click="open(trips.drv_end_point)">link to see in map</a>
+						</div>-->
+						<div class="col-80 vhCenter">
+							<label>Electronics City Phase 1, Electronic City, Bengaluru, Karnataka 560100</label>
+							<!--<label><reverse-end lat="{{trips.drv_end_point.lat}}"lng="{{trips.drv_end_point.long}}"/>
+							</label>-->
+							<!--<label><reverse-geocode lat="{{trips.drv_end_point.lat}}"lng="{{trips.drv_end_point.long}}"/>
+							</label>-->
+							<br>
+							<a ng-click="open(trips.drv_end_point)">show map</a>
 						</div>
 					</div>
 				</div>
@@ -280,14 +299,14 @@
 				<div class="updatedCard card list borderBottom">
 					<div class="item item-text-wrap">
 						<div class="row padd0">
-							<div class="col-20 ">
+							<div class="col-20">
 								<ul class="eventList">
 									<li>{{getTimeService(event.ts)}}</li>
-									<li>{{getDateService(event.ts)}}</li>
+									<!--<li>{{getDateService(event.ts)}}</li>-->
 								</ul>
 							</div>
 							<!-- 0 panic ,3 battery, 4 overspeed,5 geo fence,7 cat -->
-							<div class="col-40 vhCenter">
+							<div class="col-40">
 								<ul class="evenDetail">
 									<li><div class="verhorcenter"><img ng-src="{{getEventImgSrc(event.alarm_type)}}" class="markerImg"><label>{{getEventName(event.alarm_type)}}</label></div></li>
 									<li><span>Vehicle no:{{event.vehicle_num}}</span></li>
@@ -313,6 +332,7 @@
 		<!-- Completed Cards -->
 		<!-- Cancelled Cards -->
 		<div ng-if="trips.status=='C'">
+			<div class="list card">
 			<!--<div class="updatedCard card list marginBottom">
 				<div class="updatedDivider item item-divider cardPadding noBorder">
 					<h3 class="tripName">{{trips.trip_name}}</h3>
@@ -375,11 +395,11 @@
 				</div>
 				<div class="item item-text-wrap itemStyle statusCancel">
 					<div class="row padd0">
-						<div class="col-20 applyColor">
+						<div class="col-20 applyColor dropPadd">
 							<ul class="timelist">
 								<li class="colorDrop">DROP</li>
-								<li>{{getTimeService(trips.td_end_point.ts)}}</li>
-								<li>APPROX</li>
+								<!--<li>{{getTimeService(trips.td_end_point.ts)}}</li>
+								<li>APPROX</li>-->
 							</ul>
 						</div>
 						<div class="col-80 vhCenter">
@@ -387,9 +407,24 @@
 						</div>
 					</div>
 				</div>
+				<div class="item item-text-wrap itemStyle statusCancel">
+					<div class="row padd0">
+						<div class="col-20 applyColor">
+							<ul class="timelist">
+								<li class="colorDrop">END</li>
+								<li>{{getTimeService(trips.td_end_point.ts)}}</li>
+								<li>APPROX</li>
+							</ul>
+						</div>
+						<div class="col-80 vhCenter">
+							<label>{{trips.td_end_point.name}}</label>
+						</div>
+					</div>
+				</div>
 			
 		</div>
 		<!-- Cancelled Cards -->
+		</div>
 	</div>
 	<div class="row th_width" ng-show="historyNotAvailable">
 		<div class="col verhorcenter" align="center">

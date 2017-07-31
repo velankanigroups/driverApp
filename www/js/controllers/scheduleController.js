@@ -18,7 +18,7 @@ driverApp.controller('scheduledController', function($rootScope,$scope,$rootScop
 	$scope.trip_status="S";
 //$scope.trip.trip_status = "S";
 $scope.tripOptions = [
-	{name:'Schedule Trip',value:"S"},
+	{name:'Scheduled Trip',value:"S"},
 	{name:'Finished Trip',value:"F"},
 	{name:"Cancelled Trip",value:"C"} 
 ];

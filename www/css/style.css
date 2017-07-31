@@ -265,7 +265,28 @@ ion-view.view-with-net{
 .bats_style .item.item-divider h1{color:#03A9F4;}
 .bats_style .list-content{padding:10px;text-align:center;background:rgba(0,0,0,0.4);border-radius:0 0 5px 5px;}
 .bats_style .list-content label{color:#fff}
-.bats_style button.button.button-positive{background: #ff6138;margin: 0; padding: 0px 15px 0 15px;font-size: 15px; line-height: 1;  min-height: 38px;margin-top: 15px;} 
+.bats_style button.button.button-positive{        background: #ff6138;
+    margin: 0;
+    padding: 0px 15px 0 15px;
+    font-size: 15px;
+    line-height: 1;
+    min-height: 46px;
+    margin-top: 32px;
+    margin-right: 8px;
+} 
+
+.th_today{
+    background: #ff6138;
+    margin: 0;
+    padding: 0px 12px 0 12px !important;
+    font-size: 15px;
+    line-height: 1;
+    min-height: 29px !important;
+    margin-top: 10px !important;
+    margin-right: 8px;
+    }
+
+
 .bats_style .button.button-positive.button_list{background:#03A9F4;margin:10px;font-size:14px;min-height:20px;padding:0 10px;line-height:30px;}
 @media screen and (max-width: 600px) {
 	.bats_style .has-subheader-custom {top: 210px !important;}
@@ -482,13 +503,19 @@ p.userName{font-size:18px !important;text-overflow:ellipsis;text-transform:capit
 .completedTimelist li:LAST-CHILD{color:#000;}
 .evenDetail li, .eventList li{text-align: right;line-height: 1.435;font-size:12px;}
 .evenDetail li:FIRST-CHILD,.eventList li:FIRST-CHILD{color:#000000;}
-.evenDetail li:LAST-CHILD, .eventList li:LAST-CHILD{color:#dddddd;}
+.evenDetail li:LAST-CHILD, .eventList li:LAST-CHILD{color:#989494;}
 .colorDrop{color:red!important;}
+.colorDropD{color:#ffba00 !important;}
+.colorStart{color: #2dcc70 !important;}
 .passengerSectionImg{width:45px;}
 .callSectionImg{width:30px;}
 .alignCenter{text-align: center;}
 .startBtn{min-width:120px;background-color:#2dcc70!important;}
 .vhCenter{margin:auto;    padding-left: 2%;    padding-right: 16%;}
+.vhCenter1{margin: auto;
+    padding-left: 6%;
+    padding-right: 2%;
+}
 .passenger{font-size:14px !important;} 
 .passDetail{font-size:16px !important;font-weight:700;}
 .imgdivP{width: 50px; height: 50px; position: absolute;left: 88%;top: 58%; margin-left: -25px; margin-top: -25px;}
@@ -508,10 +535,17 @@ p.userName{font-size:18px !important;text-overflow:ellipsis;text-transform:capit
 .tripOnGoing{background:#0171c5;font-size:10px;color:#fff;border-radius:12px;padding: 0px 8px;
     float: right;
     margin-right: 18%;}
+.marginAuto{
+        margin: auto;
+        }
 .tripOnGoingDot{color: #0171c5;font-size: 4em;position: absolute;top: 30px;}
 .statusCancel{opacity:0.6;}
 .padd0{padding:0px !important;}
-.applyColor{background-color: #f8f8f8;}
+.applyColor{background-color: #f8f8f8;margin: auto;}
+.dropPadd{ margin: 0px auto;
+    padding-top: 9%;}
+/*.CdropPadd{ margin: 0px auto;
+    padding-top: 6%;}*/
 .noBorder{border-color:transparent !important;}
 .bgColor{background-color:#f3f3f3;}
 .marginBottom{margin-bottom:10px;}
@@ -521,10 +555,10 @@ p.userName{font-size:18px !important;text-overflow:ellipsis;text-transform:capit
 .onGoingDot{color:#35ac19;font-size:2em;position: absolute;top: 0px;}
 .custCol{max-width:6%;}
 .markerDiv{text-align: right;}
-.markerImg{width:30px;}
+.markerImg{width:24px;}
 .customCol{flex: 0 0 40%;max-width:40%}
-.topBtn{top:15px;}
-.back-button{top:14px;}
+.topBtn{top:13px;}
+.back-button{top:11px;}
 .borderBottom{border-bottom: 1px solid #ddd !important;}
 .verhorcenter{display: flex;align-items: center;justify-content: center;}
 .menuItem{border-width:0px !important;}
@@ -544,6 +578,7 @@ p.userName{font-size:18px !important;text-overflow:ellipsis;text-transform:capit
   .container {
       width: 100%;
       height: 20px;
+      margin-top: 5px;
   }
   .progressbar {
       counter-reset: step;
@@ -676,3 +711,26 @@ cp_error_txt{
 .th_showEvetxt{
       margin-left: 52%; 
 }
+
+.ogt_belowBtn{
+  height: 50px !important;
+  background-image: none !important;
+}
+
+.en_img{
+  border: none;
+  background-color: #fff !important;
+}
+.menuSpace{
+padding: 5px 20px;
+}
+.backcolor{
+background-color:#fff !important;
+}
+.evePadd{
+    padding: 12px 12px 12px 0px;
+    }
+
+.Tevehistory{
+        padding: 6px 25px 6px 1px !important;
+        }

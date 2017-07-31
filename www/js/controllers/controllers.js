@@ -22,7 +22,7 @@ angular.module('starter.controllers',['ionic'])
 			console.log("Expired Session");
 			var query = "DELETE FROM Token WHERE token = (?)";
        		        $cordovaSQLite.execute(db, query, [token]).then(function(res) {
-       		            alert("Delete in DB -> " + JSON.stringify(res));
+       		            //alert("Delete in DB -> " + JSON.stringify(res));
        		            //alert("Token Deleted");
 						   console.log("Token Deleted");
 						   window.localStorage.setItem( "token","");
@@ -67,14 +67,14 @@ angular.module('starter.controllers',['ionic'])
 	 * 		b)fetchTripTable
 	 * 		c)fetchTripCountTable
 	 * 		c)fetchTripCountTableUpdate*/
-	$rootScope.callEventsAPI=$interval(function(){
+	$rootScope.callEventsAPI=$interval(function(){ 
 		tripEventNotification();
 		},10*1000);
 		function tripEventNotification(){
 			$scope.driverEventsJson={};
 			$scope.driverEventsJson.token=localStorage.getItem("token");			       
 			driverAppFactory.callApi("POST",apiURL+"driver/app/rt_events",$scope.driverEventsJson,function(result){
-				//console.log(JSON.stringify(result));
+				console.log(JSON.stringify(result));
 				if(result.err!="Invalid User"){
 					if(result.alarm_data.length>0){
 						$scope.eventNotificationsAvailable=true;
@@ -88,7 +88,7 @@ angular.module('starter.controllers',['ionic'])
 							if(j>=event_Data.length){
 								return;
 							}
-							executeEventNotification(event_Data[j].devid,event_Data[j].lat,event_Data[j].long,event_Data[j].ts,event_Data[j].alarm_type,event_Data[j].velocity,event_Data[j].volt,event_Data[j].vehicle_model,event_Data[j].vehicle_num,function(eventDetails){
+							executeEventNotification(event_Data[j].devid,event_Data[j].lat,event_Data[j].long,event_Data[j].ts,event_Data[j].alarm_type,event_Data[j].Velocity,event_Data[j].volt,event_Data[j].vehicle_model,event_Data[j].vehicle_num,function(eventDetails){
 								callEventInsertFunction(eventDetails,function(){
 									j++;
 									eventInsertRecursive();
@@ -96,7 +96,7 @@ angular.module('starter.controllers',['ionic'])
 								})	
 							})
 						}
-						function executeEventNotification(devid,lat,long,ts,alarm_type,velocity,volt,vehicle_model,vehicle_num,objEventDetails){
+						function executeEventNotification(devid,lat,long,ts,alarm_type,velocity,volt,vehicle_model,vehicle_num,objEventDetails){ 
 							var query = "SELECT id FROM EventNotification";
 					        $cordovaSQLite.execute(db, query, []).then(function(res) {
 					        	var row_length = res.rows.length;
@@ -111,6 +111,7 @@ angular.module('starter.controllers',['ionic'])
 					        	eventDetails.vehicle_model=vehicle_model;
 					        	eventDetails.vehicle_num=vehicle_num;
 					        	eventDetails.row_length=row_length;
+								console.log(eventDetails);
 					        	objEventDetails(eventDetails);	   
 					    }, function (err) {
 					    	console.log(err);
@@ -121,6 +122,7 @@ angular.module('starter.controllers',['ionic'])
 					else{
 						console.log("NO ALARM");
 						fetchEventTable();
+						fetchEventCountTable();
 						fetchTripCountTable();
 					}
 					if(result.trips.length>0){
@@ -179,6 +181,7 @@ angular.module('starter.controllers',['ionic'])
 					else{					
 						console.log("NO TRIPS NOTIFICATION");
 						fetchTripTable();
+						fetchEventCountTable();
 						fetchTripCountTable();
 					}
 				}
@@ -187,7 +190,7 @@ angular.module('starter.controllers',['ionic'])
 					 $state.go('login');	 
 				}
 				else{
-			    	alert(result.err);
+			    	//alert(result.err);
 					$interval.cancel($rootScope.callEventsAPI);
 			    	clearDB();	
 			    	$state.go('login');
@@ -200,7 +203,7 @@ angular.module('starter.controllers',['ionic'])
 			if(eventDetails.row_length<=4){
 				var query_insert = "INSERT INTO EventNotification (devid,lat,long,ts,alarm_type,velocity,volt,vehicle_model,vehicle_num) VALUES (?,?,?,?,?,?,?,?,?)";
 		        $cordovaSQLite.execute(db, query_insert, [eventDetails.devid,eventDetails.lat,eventDetails.long,eventDetails.ts,eventDetails.alarm_type,eventDetails.velocity,eventDetails.volt,eventDetails.vehicle_model,eventDetails.vehicle_num]).then(function(res) {
-		        	//console.log("INSERTED 1,2,3,4,5>>>>>>" + JSON.stringify(res));
+		        	console.log("INSERTED 1,2,3,4,5>>>>>>" + JSON.stringify(res));
 		        	callback();
 		        }, function (err) {
 		        	//console.log("Insert in DB err 1,2,3,4,5 -> " + JSON.stringify(err));
@@ -218,9 +221,11 @@ angular.module('starter.controllers',['ionic'])
 			        		   console.log("deleted first id from db error" + err);
 					        });
 			           }
+					   console.log(eventDetails.velocity);
 			           var query_insert = "INSERT INTO EventNotification (devid,lat,long,ts,alarm_type,velocity,volt,vehicle_model,vehicle_num) VALUES (?,?,?,?,?,?,?,?,?)";
 	 		        $cordovaSQLite.execute(db, query_insert, [eventDetails.devid,eventDetails.lat,eventDetails.long,eventDetails.ts,eventDetails.alarm_type,eventDetails.velocity,eventDetails.volt,eventDetails.vehicle_model,eventDetails.vehicle_num]).then(function(res) {
-	 		        	//console.log("INSERTED new row after deleting first from db>>>>>>" + JSON.stringify(res));
+	 		        	
+						 console.log("INSERTED new row after deleting first from db>>>>>>" + JSON.stringify(res));
 	 		        	callback();
 	 		        }, function (err) {
 	 		        	//console.log("INSERTING new row after deleting first from db err2 -> " + JSON.stringify(err));
@@ -236,13 +241,17 @@ angular.module('starter.controllers',['ionic'])
 	    	var notify_Db = [];
 	        var query = "SELECT * FROM EventNotification";
 	        $cordovaSQLite.execute(db, query, []).then(function(res) {
+				console.log(res);
 	            if(res.rows.length > 0) {
 	            for(var i=0;i<res.rows.length;i++){
-	            	//console.log("SELECTED -> " + JSON.stringify(res.rows.item(i)));
+	            	console.log("SELECTED -> " + JSON.stringify(res.rows.item(i)));
 	            	notify_Db.push(res.rows.item(i));
-	            	//console.log(JSON.stringify(notify_Db));
+	            	console.log(JSON.stringify(notify_Db));
 	            	$scope.notifyEvents = notify_Db;
-	            	//console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>Notify Events>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+JSON.stringify($scope.notifyEvents));
+					console.log($scope.notifyEvents[0].lat);
+					$scope.kmph = notify_Db.velocity;
+					console.log($scope.kmph);
+	            	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>Notify Events>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+JSON.stringify($scope.notifyEvents));
 	            	$scope.eventNotificationsAvailable = true;
 					$scope.noEventNotifications = false;
 	            }
@@ -264,7 +273,9 @@ angular.module('starter.controllers',['ionic'])
 	            if(res.rows.length > 0) {
 	            for(var i=0;i<res.rows.length;i++){
 	            	var select_count = res.rows.item(0).eventnotificationCount;
+					console.log(select_count);
 	            	$scope.eventNotifyLength = select_count;
+					console.log($scope.eventNotifyLength);
 	            }
 	            } else {
 	            }
@@ -412,6 +423,7 @@ angular.module('starter.controllers',['ionic'])
             for(var i=0;i<res.rows.length;i++){
             	var select_count = res.rows.item(0).tripnotificationCount;
             	$scope.tripNotifyLength = select_count;
+				console.log($scope.tripNotifyLength);
             }
             } else {
             }

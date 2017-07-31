@@ -175,6 +175,7 @@ driverApp.controller('tripCtrl', function($rootScope, $scope, $state,
 					// console.log("API REs :: "+JSON.stringify(result));
 					if (result.data != "Events not found for this trip") {
 						$scope.teh_data = result;
+						$scope.vehicle= result.data.vehicle_num;
 						$scope.eventsAvail = true;
 					} else {
 						$scope.eventsAvail = false;
@@ -274,4 +275,39 @@ driverApp.controller('tripCtrl', function($rootScope, $scope, $state,
 			return addressValue;
 		})
 	}
+
+$scope.givelt = function(lat,lng){
+	var geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(lat,lng);
+            //$scope.GeocodeAdd();
+			console.log(lat,lng);
+
+            // $scope.GeocodeAdd = function(){
+            //     i++;
+                console.log("geocodeAdd");
+                geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+					console.log(results, status);
+                if (status == google.maps.GeocoderStatus.OK) {
+
+                    if (results[1]) {
+                        return results[1].formatted_address ;
+                    } else {
+                        return 'Location not found';
+                    }
+                } 
+                else if(status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT){
+                    console.log("OVER_QUERY_LIMIT");
+                    
+                    setTimeout(function() {
+                $scope.givelt(lat,lng);
+                    }, 3000);
+                     
+                }
+                else {
+                    return 'Location not found'; 
+                }
+                
+            });
+        //};
+		};
 });

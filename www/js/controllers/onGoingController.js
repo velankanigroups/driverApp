@@ -27,6 +27,15 @@ driverApp.controller('onGoingController', function($scope,$rootScope,$ionicPopup
 			}
    }, 100);
 	
+  
+
+   	 angular.element(document).ready(function () {
+               //$scope.loadMap();
+			   $scope.select();
+			   //$scope.initOnGoingMap();
+       });
+
+
 	var onGoingMap;	
 	$interval.cancel($rootScope.listTrip);
 	$scope.myLocation={};
@@ -34,9 +43,40 @@ driverApp.controller('onGoingController', function($scope,$rootScope,$ionicPopup
 	$scope.tripNotOngoing=true;
 	//$scope.tripData = {"status":"R","trip_id":"TN70AD1011_1485945663002", "ts":"1485926693907","td_start_point":{"lat":"12.850128","long":"77.660008"},"td_end_point":{"lat":"13.198635","long":"77.706593"}};
 	
+	//$scope.initOnGoingMap();
+
+	$scope.loadMap =function(){
+		// onGoingMap = new google.maps.Map(document.getElementById('onGoingMap'), {
+		// 	zoom : 10,
+		// 	center : {
+		// 		lat : $scope.tripData.td_start_point.lat,
+		// 		lng : $scope.tripData.td_start_point.long
+		// 	}
+		// });	
+		console.log("map load");
+		var myOptions = {
+	        zoom: 8,
+	        /*maxZoom : 20,*/
+	        /*maxZoom : 18,*/
+	        mapTypeId: google.maps.MapTypeId.ROADMAP
+	    };
+	    address = 'India';
+	    // address = 'Trinidad and Tobago'
+	    geocoder = new google.maps.Geocoder();
+	    geocoder.geocode( { 'address': address}, function(results, status) {
+	    onGoingMap.fitBounds(results[0].geometry.viewport);
+
+	    });	
+	    onGoingMap = new google.maps.Map(document.getElementById("onGoingMap"),
+	            myOptions);
+
+
+
+	}
 	  $scope.select = function() {
         var query = "SELECT tripData FROM onGoingTrip";
         $cordovaSQLite.execute(db, query).then(function(res) {
+			console.log("dataload");
             if(res.rows.length > 0) {
 				var temp = {};
 				
@@ -131,6 +171,7 @@ function update(){
 		/***************************************************************************/
 		//$scope.tripData=driverAppService.getData();
 		
+		console.log("initdata");
 		if($scope.tripData.status=="D"){
 			$scope.start="active";
   			$scope.drop="active";
@@ -153,6 +194,10 @@ function update(){
     		$scope.destination = new google.maps.LatLng($scope.tripData.td_destination.lat,$scope.tripData.td_destination.long);
 		}
 		
+
+	
+
+
 		console.log("my destination "+$scope.source+"  "+$scope.destination)
 		onGoingMap = new google.maps.Map(document.getElementById('onGoingMap'), {
 			zoom : 10,
@@ -285,8 +330,8 @@ function update(){
 		$scope.dropCustomerJson={};
 		$scope.dropCustomerJson.token=localStorage.getItem("token");		
 		$scope.dropCustomerJson.trip_id=$scope.tripData.trip_id;
-		$scope.dropCustomerJson.lat=$scope.myLocation.lt;
-		$scope.dropCustomerJson.long=$scope.myLocation.lg;
+		$scope.dropCustomerJson.lat=$scope.tripData.td_destination.lat;
+		$scope.dropCustomerJson.long=$scope.tripData.td_destination.long;
 		$scope.dropCustomerJson.ts=new Date().getTime();			
 		driverAppFactory.callApi("POST",apiURL+"driver/app/trip_drop",$scope.dropCustomerJson,function(result){
   		console.log(JSON.stringify(result));  
@@ -327,8 +372,8 @@ function update(){
 		$scope.endTripJson={};
 		$scope.endTripJson.token=localStorage.getItem("token");		
 		$scope.endTripJson.trip_id=$scope.tripData.trip_id;
-		$scope.endTripJson.lat=$scope.myLocation.lt;
-		$scope.endTripJson.long=$scope.myLocation.lg;
+		$scope.endTripJson.lat=$scope.tripData.td_end_point.lat;
+		$scope.endTripJson.long=$scope.tripData.td_end_point.long;
 		$scope.endTripJson.ts=new Date().getTime();			
 		driverAppFactory.callApi("POST",apiURL+"driver/app/trip_end",$scope.endTripJson,function(result){
   		console.log(JSON.stringify(result));  
