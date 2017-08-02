@@ -10,9 +10,11 @@
              </div>
 			 <div class="col-34 dateSection verhorcenter">
   					<label class="input-label labelStyle">To</label>
-                    <input class="item item-input item-floating-label date_time_cal" id="end_alarm_Dt"  name="end_date" type="date"  ng-model="hist.endDate"  ng-change="showTripHistory(hist)" required/>
-             </div>           
+                    <input class="item item-input item-floating-label date_time_cal" id="end_alarm_Dt"  name="end_date" type="date"  ng-model="hist.endDate"  ng-change="showTripHistory(hist)" min=" minm | date: 'yyyy-MM-dd'"  required/>
+             </div>  
+
   		</div>
+  		{{hist.startDate}}{{minm | date: 'yyyy-MM-dd'}}
   	</div>
   </div>
   <ion-scroll zooming="true" direction="y" ng-style="availableScroller">
@@ -96,7 +98,8 @@
 				</div>
 				<!-- Events -->         
 			</ion-item>	
-				<div class="row">
+		
+				<div class="row" style="margin-bottom: 50px;">
 					<div class="col col-43 col-offset-57 th_showEvetxt">
 						<label class="eventStyle" ng-click="tripEventHistoryApiCall(trips.trip_id);toggleEventInfo(trips)">{{isEventShown(trips)&&eventsAvail?"HIDE":"SHOW"}} EVENTS &nbsp;<i class="icon" ng-class="isEventShown(trips)&&eventsAvail?'ion-chevron-up':'ion-chevron-down'"></i></label>
 					</div>

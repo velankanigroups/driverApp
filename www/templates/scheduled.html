@@ -102,8 +102,8 @@
 				</div>-->
 
 
-				<div class="item item-text-wrap itemStyle">
-					<div class="row">
+				<div class="item item-text-wrap itemStyle" ng-repeat="customerInfo in trips.customers">
+					<div class="row" >
 						<div class="col-10">
 							<div class="row">
 								<div class="col imgdivH">
@@ -113,9 +113,9 @@
 							</div>
 						</div>
 						<div class="col-80">
-							<div class="row">
+							<div class="row" >
 								<div class="col vhCenter1"
-									ng-repeat="customerInfo in trips.customers">
+									>
 									<label class="passenger">Passenger</label>
 									<p class="passDetail">{{customerInfo.name}}</p>
 									<p class="passDetail">{{customerInfo.cn}}</p>
@@ -124,7 +124,7 @@
 						</div>
 						<div class="col-10">
 							<div class="row">
-								<div class="col imgdivP" ng-repeat="customerInfo in trips.customers">
+								<div class="col imgdivP" >
 									<a ng-href="{{'tel:'+customerInfo.cn}}">
 									<img alt="phone" src="../www/img/call.png"
 										class="callSectionImg" >

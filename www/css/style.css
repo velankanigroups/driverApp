@@ -32,6 +32,9 @@
 .no-errors {
   border-bottom: 3px solid green;
 }
+.mismatch{
+  color:red;
+}
 .error.error_white {
   color: #fff;
   text-align: left;

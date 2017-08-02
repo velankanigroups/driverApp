@@ -31,6 +31,26 @@ driverApp.controller('tripCtrl', function($rootScope, $scope, $state,
 	$scope.hist.endDate = new Date();
 	var now = new Date(), maxDate = now.toISOString().substring(0, 10);
 	document.getElementById('start_alarm_Dt').setAttribute('max', maxDate);
+	console.log(" ************************* "+ $scope.hist.startDate );
+	$scope.minm=new Date($scope.hist.startDate).getTime();
+	var today=$scope.hist.startDate;
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+	var yyyy = today.getFullYear();
+ 	if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+	today = yyyy+'-'+mm+'-'+dd;
+	console.log(" timestamp "+ $scope.minm);
+	document.getElementById('end_alarm_Dt').setAttribute('min',today);
+
+
+
+
 
 	$scope.location = function(lat, long) {
 		$scope.latforloc = lat;
