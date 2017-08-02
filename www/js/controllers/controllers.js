@@ -43,6 +43,7 @@ angular.module('starter.controllers',['ionic'])
 		     alertPopup.then(function(res) {
 		          console.log('Success');
 		          ionic.Platform.exitApp();
+				  driverAppFactory.callApi();
 		   });
 		}
 		
