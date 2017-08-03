@@ -35,6 +35,12 @@
 .mismatch{
   color:red;
 }
+.errorMsg{
+    color:red;
+    margin-top: 29px;
+        font-size: 12px;
+}
+
 .error.error_white {
   color: #fff;
   text-align: left;

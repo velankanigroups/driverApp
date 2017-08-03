@@ -28,6 +28,12 @@ $scope.doLogin = function(ChangePwd,CurrPwd){
                 template:'Current Password is invalid'
             });
         }
+        else{
+             var alertpopup  = $ionicPopup.alert({
+                title:'Error',
+                template:result.err
+            });
+        }
         
     });
 }

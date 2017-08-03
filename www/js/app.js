@@ -210,7 +210,7 @@ $stateProvider.state('app', {
 	/*window.localStorage.setItem( "token", "ONkxmVZzH4z7gCRU");
 	$urlRouterProvider.otherwise('/app/tripsData');*/
 	console.log("Token From Storage>>>>>"+localStorage.getItem("token"));
-	if(window.localStorage.getItem("token")!==null){
+	if(window.localStorage.getItem("token")!==""){
 		$urlRouterProvider.otherwise('/scheduled');
 	}else{
 		$urlRouterProvider.otherwise('/login');

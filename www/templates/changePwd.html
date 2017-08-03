@@ -9,30 +9,31 @@
   <ion-content>
     <form name="changePass" ng-submit="doLogin(ReNewPassword,CurPassword)">
       <div class="list changePwdPad">
+
         <span class="input-label cp_txtwidth">Current Password</span>
         <label class="item item-input">
-          
-          <input type="password" ng-model="CurPassword">
+          <input type="password" ng-model="CurPassword" required ng-pattern="/^(?=.*\d+)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%]{8,25}$/">
         </label>
+        <span class="errorMsg" ng-show="changePass.CurPassword.$dirty && changePass.CurPassword.$invalid">
+          Password should be atleast 8 characters with a number
+        </span>
+
+
         <span class="input-label cp_txtwidth">New Password</span>
         <label class="item item-input">
-          
-          <input type="password" name="NewPassword" ng-model="NewPassword" >
-          
+          <input type="password" name="NewPassword" ng-model="NewPassword"  required >
         </label>
+
         <span class="input-label cp_txtwidth">Confirm Password</span>
         <label class="item item-input">
-          
-          <input type="password" name="ReNewPassword" ng-model="ReNewPassword" pw-check="NewPassword">
+          <input type="password" name="ReNewPassword" ng-model="ReNewPassword" pw-check="NewPassword" required >
         </label>
-      
-        <!--<span class="mismatch" ng-show="changePass.ReNewPassword.$error.pwmatch">Password Mismatch</span>-->
         <span class="mismatch" ng-show="ReNewPassword!=NewPassword">Password Mismatch</span>
-        <!--<label class="item">-->
-          <button class="button button-block button-positive" ng-disabled="" type="submit" >UPDATE</button>
+
+        <button class="button button-block button-positive" ng-disabled="changePass.$invalid" type="submit" >UPDATE</button>
         <!--</label>-->
       </div>
     </form>
   </ion-content>
-  </ion-view>
+</ion-view>
 <!--</ion-modal-view>-->

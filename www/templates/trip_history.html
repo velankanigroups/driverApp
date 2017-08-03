@@ -10,11 +10,11 @@
              </div>
 			 <div class="col-34 dateSection verhorcenter">
   					<label class="input-label labelStyle">To</label>
-                    <input class="item item-input item-floating-label date_time_cal" id="end_alarm_Dt"  name="end_date" type="date"  ng-model="hist.endDate"  ng-change="showTripHistory(hist)" min=" minm | date: 'yyyy-MM-dd'"  required/>
+                    <input class="item item-input item-floating-label date_time_cal" id="end_alarm_Dt"  name="end_date" type="date"  ng-model="hist.endDate"  ng-change="showTripHistory(hist)"   required/>
              </div>  
 
   		</div>
-  		{{hist.startDate}}{{minm | date: 'yyyy-MM-dd'}}
+  		{{hist.startDate}}{{minm | date: 'yyyy-MM-dd'}} min=" minm | date: 'yyyy-MM-dd'"
   	</div>
   </div>
   <ion-scroll zooming="true" direction="y" ng-style="availableScroller">

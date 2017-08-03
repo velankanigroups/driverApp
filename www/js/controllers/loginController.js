@@ -65,6 +65,8 @@ driverApp.controller('LoginCtrl', function($scope, $state,$ionicPopup,$ionicPlat
 					}
 				    else if(result=="null"){
 						  alert("Service Down");
+					}else{
+						alert("Service Down");
 					}
 					
 				});  
