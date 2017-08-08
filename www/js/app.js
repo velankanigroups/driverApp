@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 var driverApp = angular.module('starter', [ 'ionic','ngCordova', 'starter.controllers' ]);
 
-driverApp.run(function($ionicPlatform,$ionicPopup,$cordovaSQLite,$state,$rootScope) {
+driverApp.run(function($ionicPlatform,$ionicPopup,$cordovaSQLite,$state,$rootScope, $cordovaNetwork) {
 	
 	//App Initialization Starts...............................................
 	
@@ -21,42 +21,99 @@ driverApp.run(function($ionicPlatform,$ionicPopup,$cordovaSQLite,$state,$rootSco
 		if (window.StatusBar) {
 			StatusBar.styleDefault();
 		}
+
 		
 		document.addEventListener("deviceready", onDeviceReady, false);
-	      function onDeviceReady() {
-	        
-	        console.log("result = "+device.uuid);
-	        dbOperation(function(){
-	        	var uuid=device.uuid;
-		        var query_insert = "INSERT INTO Device_IMEI (imei) VALUES (?)";
-	  	        $cordovaSQLite.execute(db, query_insert, [uuid]).then(function(res) {
-	  	            console.log("imei inserted into db ");
-	  	        }, function (err) {
+		function onDeviceReady() {
+
+			console.log("result = "+device.uuid);
+			dbOperation(function(){
+				var uuid=device.uuid;
+				var query_insert = "INSERT INTO Device_IMEI (imei) VALUES (?)";
+				$cordovaSQLite.execute(db, query_insert, [uuid]).then(function(res) {
+					console.log("imei inserted into db ");
+				}, function (err) {
 					
-	  	        });				
-		    	setTimeout(function(){ callForToken(); }, 5*1000);
-		    });	        
-	      }
+				});				
+				setTimeout(function(){ callForToken(); }, 5*1000);
+			});	        
+		}
 		$ionicPlatform.registerBackButtonAction(function(event) {
-		 console.log("yourcheckhere1");
+			console.log("yourcheckhere1");
 			if (true) { 
 				console.log("yourcheckhere2");
-			  $ionicPopup.confirm({
-				title: 'System warning',
-				template: 'are you sure you want to exit?'
-			  }).then(function(res) {
-				  console.log("yourcheckhere3");
-				if (res) {
-					console.log("yourcheckhere4");
-				  ionic.Platform.exitApp();
-				}
-			  })
+				$ionicPopup.confirm({
+					title: 'System warning',
+					template: 'are you sure you want to exit?'
+				}).then(function(res) {
+					console.log("yourcheckhere3");
+					if (res) {
+						console.log("yourcheckhere4");
+						ionic.Platform.exitApp();
+					}
+				})
 			}
-   }, 100);
+		}, 100);
 	});
 	
-	
-	 
+	function checkConnection(){
+		$rootScope.$on('$cordovaNetwork:offline', function(event, networkState){
+			var offlineState = networkState;
+			$ionicPopup.confirm({
+				title: 'No Internet Connection',
+				content: 'Sorry, no Internet connectivity detected. Please reconnect and try again.',
+				cancelText: 'Close',
+				okText: 'Retry'
+			})
+			.then(function(result) {
+				if(result){
+					console.log("inside check connection if");
+					checkConnection();
+				}
+				else{
+					console.log("inside check connction else");
+				 ionic.Platform.exitApp();
+				}
+			});
+		})
+	}
+
+	$rootScope.$on('$cordovaNetwork:offline', function(event, networkState){
+		var offlineState = networkState;
+		$ionicPopup.confirm({
+			title: 'No Internet Connection',
+			content: 'Sorry, no Internet connectivity detected. Please reconnect and try again.',
+			cancelText: 'Close',
+			okText: 'Retry'
+		})
+		.then(function(result) {
+			if(result){
+				$rootScope.$on('$cordovaNetwork:offline', function(event, networkState){
+					var offlineState = networkState;
+					$ionicPopup.confirm({
+						title: 'No Internet Connection',
+						content: 'Sorry, no Internet connectivity detected. Please reconnect and try again.',
+						cancelText: 'Close',
+						okText: 'Retry'
+					})
+					.then(function(result) {
+						if(result){
+							console.log("inside if");
+							checkConnection();
+						}
+						else{
+							console.log("inside else");
+							ionic.Platform.exitApp();
+						}
+					});
+				})
+			}
+			else{
+				ionic.Platform.exitApp();
+			}
+
+		});
+	})
 	//App Initialization Ends........................................................
 	
 	//DB Operation Starts............................................................
@@ -64,36 +121,37 @@ driverApp.run(function($ionicPlatform,$ionicPopup,$cordovaSQLite,$state,$rootSco
 	function dbOperation(cb) {
 		console.log("==========================>>>>>>>>>>>>>>> DB Operation <<<<<<<<<<<<<<================================================");
 		db = $cordovaSQLite.openDB({name:"my.db",iosDatabaseLocation:'default'});
-	    $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS Device_IMEI (imei varchar)");
-	    $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS Token (token varchar)");
-	    $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS EventNotification (id integer primary key,devid varchar, lat float, long float,ts integer,alarm_type varchar, velocity float,volt float,vehicle_model varchar,vehicle_num varchar)");
-	    $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS EventNotification_Count (eventnotificationCount integer)");
-	    $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS TripNotification (id integer primary key,trip_id varchar,trip_name varchar,status varchar,customers varchar,td_end_point_name varchar,td_end_point_lat float,td_end_point_long float,td_end_point_ts integer,td_start_point_name varchar,td_start_point_lat float,td_start_point_long float,td_start_point_ts integer)");
-	    $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS TripNotification_Count (tripnotificationCount integer)");
-	    $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS onGoingTrip (tripid varchar primary key,tripData blob)");
+		$cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS Device_IMEI (imei varchar)");
+		$cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS Token (token varchar)");
+		$cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS EventNotification (id integer primary key,devid varchar, lat float, long float,ts integer,alarm_type varchar, velocity float,volt float,vehicle_model varchar,vehicle_num varchar)");
+		$cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS EventNotification_Count (eventnotificationCount integer)");
+		$cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS TripNotification (id integer primary key,trip_id varchar,trip_name varchar,status varchar,customers varchar,td_end_point_name varchar,td_end_point_lat float,td_end_point_long float,td_end_point_ts integer,td_start_point_name varchar,td_start_point_lat float,td_start_point_long float,td_start_point_ts integer)");
+		$cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS TripNotification_Count (tripnotificationCount integer)");
+		$cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS onGoingTrip (tripid varchar primary key,tripData blob)");
 		cb();
 	}
 	
 	//Fetching Token from DataBase...........................................................
 	
+
 	function callForToken(){
 		console.log("==========================>>>>>>>>>>>>>>> TOKEN Operation <<<<<<<<<<<<<<================================================");
 		
 		var query = "SELECT * FROM Token";
-	    $cordovaSQLite.execute(db, query, []).then(function(res) {
-	  
-	    if(res.rows.length > 0) {
-	    	chkImei();
-	    	$state.go('app.scheduled');
-	     		  
-	    	  } else {
-	    		  
-	    		  chkImei();
-	    		  $state.go('login');
-	     	   } 
-	     }, function (err) {
-	     console.error(err);
-	     });
+		$cordovaSQLite.execute(db, query, []).then(function(res) {
+
+			if(res.rows.length > 0) {
+				chkImei();
+				$state.go('app.scheduled');
+
+			} else {
+
+				chkImei();
+				$state.go('login');
+			} 
+		}, function (err) {
+			console.error(err);
+		});
 	}
 
 	//Checking IMEI ..........................................................................
@@ -101,13 +159,13 @@ driverApp.run(function($ionicPlatform,$ionicPopup,$cordovaSQLite,$state,$rootSco
 	function chkImei(){
 		console.log("==========================>>>>>>>>>>>>>>> IMEI Operation <<<<<<<<<<<<<<================================================");
 		
-		  var query ="SELECT * FROM Device_IMEI";
-		  $cordovaSQLite.execute(db, query, []).then(function(res) {
-			  imeiNumber =res.rows.item(0).imei;
-			 
-		  },function(err){
-			  console.log(err);
-		  });  
+		var query ="SELECT * FROM Device_IMEI";
+		$cordovaSQLite.execute(db, query, []).then(function(res) {
+			imeiNumber =res.rows.item(0).imei;
+
+		},function(err){
+			console.log(err);
+		});  
 	}
 });
 
@@ -124,7 +182,7 @@ driverApp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 			},
 			responseError : function(rejection) {
 				switch (rejection.status) {
-				case 408:
+					case 408:
 					console.log('connection timed out');
 					break;
 				}
@@ -133,7 +191,7 @@ driverApp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 		}
 	});
 	
-$stateProvider.state('app', {
+	$stateProvider.state('app', {
 		cache : false,
 		url : '/app',
 		abstract : true,
@@ -185,22 +243,22 @@ $stateProvider.state('app', {
 		}		
 	}).state('app.event_notifications', {
 		cache: false,
-	    url: '/event_notifications',
-	    views: {
-	      'menuContent': {
-	        templateUrl: 'templates/event_notifications.html',	        
-	      }
-	    }
-	  }).state('app.trip_notifications', {
+		url: '/event_notifications',
+		views: {
+			'menuContent': {
+				templateUrl: 'templates/event_notifications.html',	        
+			}
+		}
+	}).state('app.trip_notifications', {
 		cache: false,
-	    url: '/trip_notifications',
-	    views: {
-	      'menuContent': {
-	        templateUrl: 'templates/trip_notifications.html',	        
-	      }
-	    }
-	  })
-	  .state('login', {
+		url: '/trip_notifications',
+		views: {
+			'menuContent': {
+				templateUrl: 'templates/trip_notifications.html',	        
+			}
+		}
+	})
+	.state('login', {
 		cache : false,
 		url : '/login',
 		templateUrl : "templates/login.html",

@@ -1,6 +1,45 @@
 angular.module('starter.controllers',['ionic'])
 .controller('AppCtrl', function($ionicPlatform,$scope,$rootScope,$ionicModal,$ionicPopup,$cordovaSQLite,$timeout,$interval,$state,driverAppFactory,driverAppService) {
 
+	// $rootScope.$on('$cordovaNetwork:offline', function(event, networkState){
+	// 	var offlineState = networkState;
+	// 	$ionicPopup.confirm({
+	// 		title: 'No Internet Connection',
+	// 		content: 'Sorry, no Internet connectivity detected. Please reconnect and try again.',
+	// 		cancelText: 'Close',
+	// 		okText: 'Retry'
+	// 	})
+	// 	.then(function(result) {
+	// 		if(result){
+	// 			$rootScope.$on('$cordovaNetwork:offline', function(event, networkState){
+	// 				var offlineState = networkState;
+	// 				$ionicPopup.confirm({
+	// 					title: 'No Internet Connection',
+	// 					content: 'Sorry, no Internet connectivity detected. Please reconnect and try again.',
+	// 					cancelText: 'Close',
+	// 					okText: 'Retry'
+	// 				})
+	// 				.then(function(result) {
+	// 					if(result){
+	// 						console.log("inside if");
+							
+	// 					}
+	// 					else{
+	// 						console.log("inside else");
+	// 						ionic.Platform.exitApp();
+	// 					}
+	// 				});
+	// 			})
+	// 		}
+	// 		else{
+	// 			ionic.Platform.exitApp();
+	// 		}
+
+	// 	});
+	// })
+
+
+
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -35,16 +74,16 @@ angular.module('starter.controllers',['ionic'])
 		}
 		
 		else{
-			console.log("conect problem");
-			var alertPopup = $ionicPopup.alert({
-			       title: 'Notification Details',
-		    	   template: 'Connectivity Problem!..'
-		   });
-		     alertPopup.then(function(res) {
-		          console.log('Success');
-		          ionic.Platform.exitApp();
-				  driverAppFactory.callApi();
-		   });
+			// console.log("conect problem");
+			// var alertPopup = $ionicPopup.alert({
+			//        title: 'Notification Details',
+		 //    	   template: 'Connectivity Problem!..'
+		 //   });
+		 //     alertPopup.then(function(res) {
+		 //          console.log('Success');
+		 //          ionic.Platform.exitApp();
+			// 	 // driverAppFactory.callApi();
+		 //   });
 		}
 		
 			

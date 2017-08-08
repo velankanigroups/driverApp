@@ -384,11 +384,13 @@ driverApp.controller('onGoingController', function($scope,$rootScope,$ionicPopup
 		  	  	  	}
 		  	  	  	else{
 		  	  	  		$scope.notrips=true;
+
 		  	  	  	}
 		  	  	  }
 		  	  	});	
 			}
-			else{  			
+			else{  	
+			alert(result.err);		
 				var resp_len=result.length;
 				console.log(JSON.stringify(result));
 				for(var i=0;i<resp_len;i++){

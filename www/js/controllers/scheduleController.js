@@ -126,7 +126,7 @@ $ionicPlatform.registerBackButtonAction(function(event) {
 	       	          //  alert("INSERTED>>>>>>"+JSON.stringify(res)+JSON.stringify(trip));
 	       	          $state.go('app.ongoing'); 
 	       	      }, function (err) {
-	       	      	alert("Insert Token in DB err -> " + JSON.stringify(err));
+	       	      	//alert("Insert Token in DB err -> " + JSON.stringify(err));
 	       	      });	            		                
 				}
 			}, function (err) {
@@ -187,7 +187,7 @@ $ionicPlatform.registerBackButtonAction(function(event) {
 	          //  alert("INSERTED>>>>>>"+JSON.stringify(res)+JSON.stringify(trip));
 	          console.log("INSERTED>>>>>>");
 	      }, function (err) {
-	      	alert("Insert Token in DB err -> " + JSON.stringify(err));
+	      	//alert("Insert Token in DB err -> " + JSON.stringify(err));
 	      });
    			trip.status="R";
    			driverAppService.saveData(trip);
