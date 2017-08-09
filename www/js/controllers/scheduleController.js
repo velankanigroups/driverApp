@@ -169,6 +169,7 @@ $ionicPlatform.registerBackButtonAction(function(event) {
    }
    
    $scope.startTrip=function(trip){        
+    $scope.deleteTripNotificationLength();
    	$scope.startTripJson={};
    	$scope.startTripJson.token=localStorage.getItem("token");
    	$scope.startTripJson.trip_id=trip.trip_id;
@@ -194,7 +195,7 @@ $ionicPlatform.registerBackButtonAction(function(event) {
    			$interval.cancel($scope.listTrip);
    			$state.go('app.ongoing');  
    		}
-   		else if(result.err=="Some Trip Already Running"){
+   		else if(result.err=="Some other Trip Already Running"){
    			var alertPopup = $ionicPopup.alert({
    				title: 'Notification Details',
    				template: '<b>Some Trip is not completed yet</b>'
