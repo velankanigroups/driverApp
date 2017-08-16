@@ -1,40 +1,37 @@
-<ion-view id="login" hide-nav-bar="true"> <ion-content
-	padding="true" scroll="false">
-<form name="LoginForm" novalidate="" ng-submit="LogIn(LoginForm,user)">
-	<div class="row responsive-md">
-		<div class="col col-50 col-offset-25">
-			<div class="header padding text-center">
-				<img src="img/logo.png" class="login_img" alt="Your logo here" />
-			</div>
-			<div class="list">
-				<label class="input-label userStyle">Licence Id</label>
-				
-				<label class="item item-input"> 
+<ion-view id="login" hide-nav-bar="true">
+  <ion-content padding="true" scroll="false">
+    <form name="LoginForm" novalidate="" ng-submit="LogIn(LoginForm,user)">
+      <div class="row responsive-md">
+        <div class="col col-50 col-offset-25">
+          <div class="header padding text-center">
+            <img src="img/logo.png" class="login_img" alt="Your logo here" />
+          </div>
+          <div class="list">
+            <label class="input-label userStyle">Licence Id</label>
+
+            <label class="item item-input"> 
 					<input type="text" name="licenceID" ng-model="user.licence_id" class="loginInput" placeholder="" required>
 				</label>
-				<div class="error-container"
-					ng-show="LoginForm.licenceID.$invalid && LoginForm.licenceID.$error && LoginForm.$submitted"
-					ng-messages="LoginForm.licenceID.$error">
-					<div class="error">
-						<i class="ion-information-circled"></i> This field is requried!..
-					</div>
-				</div>
-				<label class="input-label userStyle">Password</label> 
-				<label class="item item-input"> 
+            <div class="error-container" ng-show="LoginForm.licenceID.$invalid && LoginForm.licenceID.$error && LoginForm.$submitted"
+              ng-messages="LoginForm.licenceID.$error">
+              <div class="error">
+                <i class="ion-information-circled"></i> This field is requried!..
+              </div>
+            </div>
+            <label class="input-label userStyle">Password</label>
+            <label class="item item-input"> 
 				<input type="password"
 					ng-model="user.password" name="password" class="loginInput"
 					placeholder="" required />
 				</label>
-				<div class="error-container"
-					ng-show="LoginForm.password.$invalid && LoginForm.password.$error && LoginForm.$submitted"
-					ng-messages="LoginForm.password.$error">
-					<div class="error">
-						<i class="ion-information-circled"></i> This field is requried!..
-					</div>
-				</div>
-			</div>
-			<button  type="submit" class="button button-block button-positive">Log In</button>
-			<!--  <div class="row row-no-padding">
+            <div class="error-container" ng-show="LoginForm.password.$invalid && LoginForm.password.$error && LoginForm.$submitted" ng-messages="LoginForm.password.$error">
+              <div class="error">
+                <i class="ion-information-circled"></i> This field is requried!..
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="button button-block button-positive">Log In</button>
+          <!--  <div class="row row-no-padding">
                         <div class="col">
                             <button class="button button-clear button-light">
                                 Forgot password?
@@ -47,10 +44,11 @@
                             </button>
                         </div>
                     </div> -->
-		</div>
-	</div>
-</form>
-</ion-content> </ion-view>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
 <!-- <ion-view title="Sign-In">
 <ion-content>
 <div class="card login-card-center">

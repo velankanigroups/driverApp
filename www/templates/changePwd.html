@@ -1,45 +1,45 @@
 <!--<ion-modal-view view-title="Change Password">-->
-<ion-view view-title="Change Password"> 
-  <!--<ion-header-bar>
+<ion-view view-title="Change Password">
+	<!--<ion-header-bar>
     <h1 class="title">Login</h1>
     <div class="buttons">
       <button class="button button-clear" ng-click="closeLogin()">Close</button>
     </div>
   </ion-header-bar>-->
-  <ion-content scroll="true">
-    <form name="changePass" ng-submit="doLogin(ReNewPassword,CurPassword)">
-      <div class="list changePwdPad">
+	<ion-content scroll="true">
+		<form name="changePass" ng-submit="doLogin(ReNewPassword,CurPassword)">
+			<div class="list changePwdPad">
 
-			<span class="input-label cp_txtwidth">Current Password</span>
-			<label class="item item-input">
+				<span class="input-label cp_txtwidth">Current Password</span>
+				<label class="item item-input">
 			  <input type="password" ng-model="CurPassword" name="CurPassword" required ng-pattern="/^(?=.*\d+)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%]{8,25}$/">
 			</label>
-			<span class="mismatch" ng-show="changePass.CurPassword.$dirty && changePass.CurPassword.$invalid">
+				<span class="mismatch" ng-show="changePass.CurPassword.$dirty && changePass.CurPassword.$invalid">
 			  Password should be atleast 8 characters with alteast one number and  atleast one character
 			</span>
 
-			<span class="input-label cp_txtwidth">New Password</span>
-			<label class="item item-input">
+				<span class="input-label cp_txtwidth">New Password</span>
+				<label class="item item-input">
 			  <input type="password" name="NewPassword"   ng-model="NewPassword"  required ng-pattern="/^(?=.*\d+)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%]{8,25}$/">
 			</label>
-			<span class="mismatch" ng-show="changePass.NewPassword.$dirty && changePass.NewPassword.$invalid">
+				<span class="mismatch" ng-show="changePass.NewPassword.$dirty && changePass.NewPassword.$invalid">
 			  Password should be atleast 8 characters with alteast one number and  atleast one character
 			</span>
 
-			<span class="input-label cp_txtwidth">Confirm Password</span>
-			<label class="item item-input">
+				<span class="input-label cp_txtwidth">Confirm Password</span>
+				<label class="item item-input">
 			  <input type="password" name="ReNewPassword" name="CurPassword" ng-model="ReNewPassword" pw-check="NewPassword" 
 			  required ng-pattern="/^(?=.*\d+)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%]{8,25}$/">
 			</label>
-			<span class="mismatch" ng-show="changePass.ReNewPassword.$dirty && ReNewPassword!=NewPassword">Password Mismatch</span>
-			<!--<span class="mismatch" ng-show="changePass.ReNewPassword.$dirty && changePass.ReNewPassword.$invalid">
+				<span class="mismatch" ng-show="changePass.ReNewPassword.$dirty && ReNewPassword!=NewPassword">Password Mismatch</span>
+				<!--<span class="mismatch" ng-show="changePass.ReNewPassword.$dirty && changePass.ReNewPassword.$invalid">
 			  Password should be atleast 8 characters with alteast one number and  atleast one character
 			</span>-->
 
-			<button class="button button-block button-positive" ng-disabled="changePass.$invalid" type="submit" >UPDATE</button>
-			<!--</label>-->
-      </div>
-    </form>
-  </ion-content>
+				<button class="button button-block button-positive" ng-disabled="changePass.$invalid" type="submit">UPDATE</button>
+				<!--</label>-->
+			</div>
+		</form>
+	</ion-content>
 </ion-view>
 <!--</ion-modal-view>-->

@@ -24,7 +24,8 @@ driverApp.factory('driverAppFactory', function($http) {
 				console.log(status);
 				console.log(headers);
 				console.log(config);
-				callback(data);				
+				callback(data);			
+				
 				/*var respTime = new Date().getTime() - startTime;
 				console.log(respTime,headers.timeout);
 				if(respTime >= headers.timeout){

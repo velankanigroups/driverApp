@@ -78,6 +78,63 @@ driverApp.run(function($ionicPlatform,$ionicPopup,$cordovaSQLite,$state,$rootSco
 		})
 	}
 
+	$rootScope.invalidUser=function(){
+		console.log(" *****************invalid usesr function called ***********************");
+		  var query = "DELETE FROM Token WHERE token = (?)";
+          window.localStorage.setItem( "token","");
+          $cordovaSQLite.execute(db, query, [token]).then(function(res) {
+       		            //alert("Delete in DB -> " + JSON.stringify(res));
+       		            //alert("Token Deleted");
+                      console.log("Token Deleted");
+                    }, function (err) {
+       		            //alert(err);
+                     }); 
+
+          var query_eventdelete = "DELETE FROM EventNotification";
+          $cordovaSQLite.execute(db, query_eventdelete, []).then(function(res) {
+       		            //alert("Deleted all data in Notification -> " + JSON.stringify(res));
+       		            //alert("Token Deleted");
+                     }, function (err) {
+       		            //alert(err);
+                     });
+
+          var query_delete_eventcount = "DELETE FROM EventNotification_Count";
+          $cordovaSQLite.execute(db, query_delete_eventcount, []).then(function(res) {
+       		            //alert("Deleted all data in Notification -> " + JSON.stringify(res));
+       		            //alert("Token Deleted");
+                     }, function (err) {
+       		            //alert(err);
+                     });
+
+          var query_tripdelete = "DELETE FROM TripNotification";
+          $cordovaSQLite.execute(db, query_tripdelete, []).then(function(res) {
+       		            //alert("Deleted all data in Notification -> " + JSON.stringify(res));
+       		            //alert("Token Deleted");
+                     }, function (err) {
+       		            //alert(err);
+                     });
+
+          var query_delete_tripcount = "DELETE FROM TripNotification_Count";
+          $cordovaSQLite.execute(db, query_delete_tripcount, []).then(function(res) {
+       		            //alert("Deleted all data in Notification -> " + JSON.stringify(res));
+       		            //alert("Token Deleted");
+                     }, function (err) {
+       		            //alert(err);
+                     });
+
+          var query_delete_Ongoing = "DELETE FROM onGoingTrip";
+          $cordovaSQLite.execute(db, query_delete_Ongoing, []).then(function(res) {
+	    		            //alert("Deleted all data in Notification -> " + JSON.stringify(res));
+	    		            //alert("Token Deleted");
+                   }, function (err) {
+	    		            //alert(err);
+                   });
+          
+          $state.go('login');	  
+	}
+	
+	
+	
 	$rootScope.$on('$cordovaNetwork:offline', function(event, networkState){
 		var offlineState = networkState;
 		$ionicPopup.confirm({
