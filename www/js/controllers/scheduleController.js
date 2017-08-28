@@ -101,9 +101,9 @@ driverApp.controller('scheduledController', function ($rootScope, $scope, $rootS
 					$scope.notrips = true;
 				}
 			}
-			else if (error.err === 'Invalid  User') {
+			else if (result.err === 'Invalid  User') {
 				$rootScope.invalidUser();
-			} else if (error.err == "Expired Session") {
+			} else if (result.err == "Expired Session") {
 				$interval.cancel($rootScope.callEventsAPI);
 				$rootScope.invalidUser();
 				$state.go('login');
@@ -211,9 +211,9 @@ driverApp.controller('scheduledController', function ($rootScope, $scope, $rootS
 					console.log('Success');
 				});
 			}
-			else if (error.err === 'Invalid  User') {
+			else if (result.err === 'Invalid  User') {
 				$rootScope.invalidUser();
-			} else if (error.err == "Expired Session") {
+			} else if (result.err == "Expired Session") {
 				$interval.cancel($rootScope.callEventsAPI);
 				$rootScope.invalidUser();
 				$state.go('login');

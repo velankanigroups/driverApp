@@ -151,6 +151,9 @@ driverApp.controller('tripCtrl', function ($rootScope, $scope, $state,
 		driverAppFactory.callApi("POST", apiURL + "driver/app/trip_history", $scope.alarmHistoryjson, function (result) {
 			console.log(JSON.stringify(result));
 			$ionicLoading.hide();
+			if(result.msg){
+				console.log("hghghg");
+			}
 			if (result.msg != "history data not found") {
 				$scope.historyNotAvailable = false;
 				angular.forEach(result.data, function (resultItem) {
@@ -177,10 +180,10 @@ driverApp.controller('tripCtrl', function ($rootScope, $scope, $state,
 					$scope.historyNotAvailable = true;
 				}
 				$scope.th_data = result;
-			} else if (error.err === 'Invalid  User') {
+			} else if (result.err === 'Invalid  User') {
 				$rootScope.invalidUser();
 			}
-			else if (error.err == "Expired Session") {
+			else if (result.err == "Expired Session") {
 				$interval.cancel($rootScope.callEventsAPI);
 				$rootScope.invalidUser();
 				$state.go('login');
@@ -213,7 +216,7 @@ driverApp.controller('tripCtrl', function ($rootScope, $scope, $state,
 					$scope.teh_data = result;
 					$scope.vehicle = result.data.vehicle_num;
 					$scope.eventsAvail = true;
-				} else else  if (error.err === 'Invalid  User') {
+				} else  if (error.err === 'Invalid  User') {
 					$rootScope.invalidUser();
 				} else if (error.err == "Expired Session") {
 					$interval.cancel($rootScope.callEventsAPI);

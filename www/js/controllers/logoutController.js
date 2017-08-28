@@ -80,10 +80,10 @@ driverApp.controller('logoutController', function ($rootScope, $scope, $http, $c
           console.log(status);
           console.log(headers);
           console.log(config);
-          if (error.err === 'Invalid  User') {
+          if (data.err === 'Invalid  User') {
             $rootScope.invalidUser();
           }
-          else if (error.err == "Expired Session") {
+          else if (data.err == "Expired Session") {
             //$interval.cancel($rootScope.callEventsAPI);
             clearDB();
             $state.go('login');

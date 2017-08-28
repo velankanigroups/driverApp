@@ -4,8 +4,8 @@
   	var apiURL="http://220.227.124.134:8050/"//SMOKE testing server public IP	
   	var apiURL="http://220.227.124.134:8058/"//dev server for driver app
 */
-var apiURL="http://10.1.73.169:8058/"//dev server for driver app
-// var apiURL="http://220.227.124.134:8058/"//dev server for driver app
+// var apiURL="http://10.1.73.169:8058/"//dev server for driver app
+var apiURL="http://220.227.124.134:8058/"//dev server for driver app
 //var apiURL="http://10.1.72.90:9020/"//dev server for driver app arun machine
 var token;//  =  window.localStorage.getItem( ‘token’ );	
 var driver_id;//="DRV_1";
