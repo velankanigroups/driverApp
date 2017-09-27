@@ -325,10 +325,12 @@ driverApp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 	/*window.localStorage.setItem( "token", "ONkxmVZzH4z7gCRU");
 	$urlRouterProvider.otherwise('/app/tripsData');*/
 	console.log("Token From Storage>>>>>"+localStorage.getItem("token"));
-	if(window.localStorage.getItem("token")!==""){
-		$urlRouterProvider.otherwise('/scheduled');
-	}else{
+	var token=window.localStorage.getItem("token");
+	if(token==""||token == undefined || token == null){
 		$urlRouterProvider.otherwise('/login');
+		
+	}else{
+		$urlRouterProvider.otherwise('/scheduled');
 	}
 	
 });

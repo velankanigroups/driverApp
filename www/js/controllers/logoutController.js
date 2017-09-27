@@ -24,6 +24,7 @@ driverApp.controller('logoutController', function ($rootScope, $scope, $http, $c
           }
           var query = "DELETE FROM Token WHERE token = (?)";
           window.localStorage.setItem("token", "");
+          localStorage.removeItem("token");
           $cordovaSQLite.execute(db, query, [token]).then(function (res) {
             //alert("Delete in DB -> " + JSON.stringify(res));
             //alert("Token Deleted");
